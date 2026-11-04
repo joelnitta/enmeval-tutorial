@@ -1,3 +1,10 @@
 ants
 climate
 *.rds
+data
+*.html
+*_files
+
+/.quarto/
+**/*.quarto_ipynb
+.DS_Store
