@@ -1,0 +1,10 @@
+project:
+  type: default
+  # 描画するファイルを明示する。ここに書かないファイル(data/ や ants/ の中身など)は無視される。
+  render:
+    - enmeval-tutorial-ja.qmd
+
+execute:
+  # 計算結果を _freeze/ に保存する。.qmd が変わらない限り、再実行せずに保存した結果を使う。
+  # _freeze/ は git にコミットして、GitHub 上では R コードを再実行しなくてもよいようにする。
+  freeze: auto
