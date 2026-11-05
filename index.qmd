@@ -1,0 +1,42 @@
+---
+title: "ENMeval 2.0 チュートリアル(日本語版)"
+subtitle: "maxnet によるニッチモデリングの流れを、ナマケモノのデータで一通り体験する"
+lang: ja
+toc: false
+---
+
+R パッケージ [ENMeval](https://jamiemkass.github.io/ENMeval/) 2.0.6 の vignette を日本語に翻訳し、
+R に慣れていない人でもつまずかないように補足を加えたチュートリアルです。
+ブラウンスロース(*Bradypus variegatus*、ノドジロミユビナマケモノ)の出現記録を使って、
+Maxent(`maxnet`)による **生態的ニッチモデル** の、チューニング・評価・モデル選択を、順に体験します。
+
+どちらのページも、**まっさらなパソコンで、上から順に実行すれば最後まで動く** ように書き直してあります。
+
+## 2 つのページ
+
+::: {.callout-note title="1. スクリプト版(はじめにここから)" appearance="default" icon="false"}
+[**スクリプト版チュートリアル**](enmeval-tutorial-ja.qmd)
+
+コードを 1 つずつ実行しながら、データの取得、前処理、データの分割、モデルの作成・選択、ヌルモデルまでを順に確かめます。
+各ステップの意味と、つまずきやすい点の解説つきです。R の初心者向け(作業フォルダや RStudio プロジェクトの説明も含みます)。
+:::
+
+::: {.callout-note title="2. targets 版(スクリプト版のあとで)" appearance="default" icon="false"}
+[**targets 版チュートリアル**](enmeval-targets-ja.qmd)
+
+スクリプト版で確かめた解析のうち、結果を得るのに必要な部分だけを、
+R パッケージ [targets](https://docs.ropensci.org/targets/) の **パイプライン** として書き直します。
+設定を変えたときに、**必要な部分だけをやり直せます**。
+複数の種に当てはめるなど、解析が大きくなるときに便利です。
+:::
+
+先にスクリプト版を最後まで実行してから、targets 版に進んでください。
+
+## 出典とライセンス
+
+- 元の vignette: Kass, J. M., Muscarella, R., Pinilla-Buitrago, G. E., & Galante, P. J.
+  *ENMeval 2.0.6 Vignette*
+  (<https://jamiemkass.github.io/ENMeval/articles/ENMeval-2.0-vignette.html>)
+- 引用文献: Kass, J. M. et al. (2021) ENMeval 2.0: Redesigned for customizable and reproducible modeling of species' niches and distributions. *Methods in Ecology and Evolution* 12: 1602–1608. <https://doi.org/10.1111/2041-210X.13628>
+- 元の vignette は ENMeval パッケージの一部で、GPL-3 のもとで配布されています。
+- このチュートリアルのソース: <https://github.com/joelnitta/enmeval-tutorial>
