@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ENMeval 2.0 チュートリアル(日本語版) – ENMeval 2.0 チュートリアル</title>
+<title>ENMeval 2.0 チュートリアル（日本語版） – ENMeval 2.0 チュートリアル</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -171,10 +171,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#how-to-run" id="toc-how-to-run" class="nav-link" data-scroll-target="#how-to-run"><span class="header-section-number">2.1</span> このチュートリアルのコードを実行する 2 つの方法</a>
   <ul class="collapse">
-  <li><a href="#method-script" id="toc-method-script" class="nav-link" data-scroll-target="#method-script"><span class="header-section-number">2.1.1</span> 方法 1:新しい R スクリプトにコードをコピーして実行する(おすすめ)</a></li>
-  <li><a href="#method-qmd" id="toc-method-qmd" class="nav-link" data-scroll-target="#method-qmd"><span class="header-section-number">2.1.2</span> 方法 2:チュートリアルの Quarto ファイル(<code>.qmd</code>)をダウンロードして使う</a></li>
+  <li><a href="#method-script" id="toc-method-script" class="nav-link" data-scroll-target="#method-script"><span class="header-section-number">2.1.1</span> 方法 1:新しい R スクリプトにコードをコピーして実行する（おすすめ）</a></li>
+  <li><a href="#method-qmd" id="toc-method-qmd" class="nav-link" data-scroll-target="#method-qmd"><span class="header-section-number">2.1.2</span> 方法 2:チュートリアルの Quarto ファイル（<code>.qmd</code>）をダウンロードして使う</a></li>
   </ul></li>
-  <li><a href="#wd" id="toc-wd" class="nav-link" data-scroll-target="#wd"><span class="header-section-number">2.2</span> R と作業フォルダ(working directory)</a>
+  <li><a href="#wd" id="toc-wd" class="nav-link" data-scroll-target="#wd"><span class="header-section-number">2.2</span> R と作業フォルダ（working directory）</a>
   <ul class="collapse">
   <li><a href="#rstudio-project" id="toc-rstudio-project" class="nav-link" data-scroll-target="#rstudio-project"><span class="header-section-number">2.2.1</span> RStudio を使う場合:プロジェクトを作ろう</a></li>
   </ul></li>
@@ -187,19 +187,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#occ" id="toc-occ" class="nav-link" data-scroll-target="#occ"><span class="header-section-number">3.2</span> 出現記録のダウンロード</a></li>
   <li><a href="#env" id="toc-env" class="nav-link" data-scroll-target="#env"><span class="header-section-number">3.3</span> 気候データのダウンロード</a>
   <ul class="collapse">
-  <li><a href="#vif" id="toc-vif" class="nav-link" data-scroll-target="#vif"><span class="header-section-number">3.3.1</span> 相関の強い変数を除く(VIF)</a></li>
+  <li><a href="#vif" id="toc-vif" class="nav-link" data-scroll-target="#vif"><span class="header-section-number">3.3.1</span> 相関の強い変数を除く（VIF）</a></li>
   <li><a href="#celldup" id="toc-celldup" class="nav-link" data-scroll-target="#celldup"><span class="header-section-number">3.3.2</span> 同じセルにある記録を除く</a></li>
   <li><a href="#plot-occ" id="toc-plot-occ" class="nav-link" data-scroll-target="#plot-occ"><span class="header-section-number">3.3.3</span> 地図に出現記録を重ねる</a></li>
   </ul></li>
-  <li><a href="#mess" id="toc-mess" class="nav-link" data-scroll-target="#mess"><span class="header-section-number">3.4</span> 環境の類似度(MESS)</a></li>
+  <li><a href="#mess" id="toc-mess" class="nav-link" data-scroll-target="#mess"><span class="header-section-number">3.4</span> 環境の類似度（MESS）</a></li>
   <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><span class="header-section-number">3.5</span> 背景範囲と背景点</a></li>
   </ul></li>
-  <li><a href="#partition" id="toc-partition" class="nav-link" data-scroll-target="#partition"><span class="header-section-number">4</span> 評価用のデータ分割(パーティション)</a>
+  <li><a href="#partition" id="toc-partition" class="nav-link" data-scroll-target="#partition"><span class="header-section-number">4</span> 評価用のデータ分割（パーティション）</a>
   <ul class="collapse">
-  <li><a href="#block" id="toc-block" class="nav-link" data-scroll-target="#block"><span class="header-section-number">4.1</span> ブロック(block)</a></li>
-  <li><a href="#checkerboard" id="toc-checkerboard" class="nav-link" data-scroll-target="#checkerboard"><span class="header-section-number">4.2</span> 市松模様(checkerboard)</a></li>
-  <li><a href="#jackknife" id="toc-jackknife" class="nav-link" data-scroll-target="#jackknife"><span class="header-section-number">4.3</span> ジャックナイフ(jackknife)</a></li>
-  <li><a href="#randomkfold" id="toc-randomkfold" class="nav-link" data-scroll-target="#randomkfold"><span class="header-section-number">4.4</span> ランダム <em>k</em> 分割(random <em>k</em>-fold)</a></li>
+  <li><a href="#block" id="toc-block" class="nav-link" data-scroll-target="#block"><span class="header-section-number">4.1</span> ブロック（block）</a></li>
+  <li><a href="#checkerboard" id="toc-checkerboard" class="nav-link" data-scroll-target="#checkerboard"><span class="header-section-number">4.2</span> 市松模様（checkerboard）</a></li>
+  <li><a href="#jackknife" id="toc-jackknife" class="nav-link" data-scroll-target="#jackknife"><span class="header-section-number">4.3</span> ジャックナイフ（jackknife）</a></li>
+  <li><a href="#randomkfold" id="toc-randomkfold" class="nav-link" data-scroll-target="#randomkfold"><span class="header-section-number">4.4</span> ランダム <em>k</em> 分割（random <em>k</em>-fold）</a></li>
   <li><a href="#user" id="toc-user" class="nav-link" data-scroll-target="#user"><span class="header-section-number">4.5</span> ユーザー定義の分割</a></li>
   </ul></li>
   <li><a href="#eval" id="toc-eval" class="nav-link" data-scroll-target="#eval"><span class="header-section-number">5</span> ENMeval でモデルを作る</a>
@@ -225,7 +225,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">ENMeval 2.0 チュートリアル(日本語版)</h1>
+<h1 class="title">ENMeval 2.0 チュートリアル（日本語版）</h1>
 <p class="subtitle lead">maxnet によるニッチモデリングの流れを、ナマケモノのデータで一通り体験する</p>
 </div>
 
@@ -253,10 +253,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>これは、Kass らによる <strong>ENMeval 2.0.6 vignette</strong> (<a href="https://jamiemkass.github.io/ENMeval/articles/ENMeval-2.0-vignette.html" class="uri">https://jamiemkass.github.io/ENMeval/articles/ENMeval-2.0-vignette.html</a>) を日本語に翻訳し、R に慣れていない人でもつまずかないように補足を加えたものです。 元の vignette は R の使い方について暗黙の前提が多く(たとえば「<code>bvariegatus.rds</code> というファイルがすでにある」など)、 そのまま実行すると初心者はエラーで止まってしまいます。 この版は <strong>まっさらなパソコンで、上から順に実行すれば最後まで動く</strong> ように書き直してあります。</p>
+<p>これは、Kass らによる <strong>ENMeval 2.0.6 vignette</strong> (<a href="https://jamiemkass.github.io/ENMeval/articles/ENMeval-2.0-vignette.html" class="uri">https://jamiemkass.github.io/ENMeval/articles/ENMeval-2.0-vignette.html</a>) を日本語に翻訳し、R に慣れていない人でもつまずかないように補足を加えたものです。 元の vignette は R の使い方について暗黙の前提が多く（たとえば「<code>bvariegatus.rds</code> というファイルがすでにある」など）、 そのまま実行すると初心者はエラーで止まってしまいます。 この版は <strong>まっさらなパソコンで、上から順に実行すれば最後まで動く</strong> ように書き直してあります。</p>
 <ul>
 <li>関数名・オブジェクト名は原則として元の vignette と同じにしてあるので、英語版と見比べられます。</li>
-<li>入門に必要でない部分(Java 版 Maxent、独自の評価指標、メタデータ出力など)は省略しました。</li>
+<li>入門に必要でない部分（Java 版 Maxent、独自の評価指標、メタデータ出力など）は省略しました。</li>
 <li>「実際の研究では」と書いてある囲みは、自分のデータに適用するときの注意点や、発表された研究例です。</li>
 <li>引用文献: Kass, J. M. et al.&nbsp;(2021) ENMeval 2.0: Redesigned for customizable and reproducible modeling of species’ niches and distributions. <em>Methods in Ecology and Evolution</em> 12: 1602–1608. <a href="https://doi.org/10.1111/2041-210X.13628" class="uri">https://doi.org/10.1111/2041-210X.13628</a></li>
 </ul>
@@ -264,18 +264,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="intro" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> はじめに</h1>
-<p><a href="https://cran.r-project.org/package=ENMeval"><code>ENMeval</code></a> は、 <strong>生態的ニッチモデル</strong>(ENM。種分布モデル、SDM とも呼ばれます)の「チューニング」と「評価」を自動化する R パッケージです。 ENM は、種の出現地点のデータと環境データ(気温や降水量など)から、その種が生息できそうな場所を推定します。</p>
-<p>よく使われる ENM(たとえば Maxent)には、モデルの複雑さを決める「設定」があります。 設定を変えながらいくつもモデルを作り、成績を比べて、よい設定を選ぶ作業が <strong>チューニング</strong> です。 モデルの成績は、<strong>交差検証</strong>(cross-validation)で評価します。 交差検証とは、データをいくつかのグループに分け、1 グループを除いてモデルを作り、 除いたグループでモデルの予測を確かめる、という手順をグループごとに繰り返す方法です。</p>
-<p><code>ENMeval</code> の中心になる関数は <code>ENMevaluate()</code> ひとつです。 この関数が、チューニングと評価を実行して、結果を <code>ENMevaluation</code> というオブジェクトにまとめて返します。 結果には、評価指標の表、設定ごとのモデル、設定ごとの予測ラスター(地図)が入っています。</p>
+<p><a href="https://cran.r-project.org/package=ENMeval"><code>ENMeval</code></a> は、 <strong>生態的ニッチモデル</strong>（ENM。種分布モデル、SDM とも呼ばれます）の「チューニング」と「評価」を自動化する R パッケージです。 ENM は、種の出現地点のデータと環境データ（気温や降水量など）から、その種が生息できそうな場所を推定します。</p>
+<p>よく使われる ENM（たとえば Maxent）には、モデルの複雑さを決める「設定」があります。 設定を変えながらいくつもモデルを作り、成績を比べて、よい設定を選ぶ作業が <strong>チューニング</strong> です。 モデルの成績は、<strong>交差検証</strong>（cross-validation）で評価します。 交差検証とは、データをいくつかのグループに分け、1 グループを除いてモデルを作り、 除いたグループでモデルの予測を確かめる、という手順をグループごとに繰り返す方法です。</p>
+<p><code>ENMeval</code> の中心になる関数は <code>ENMevaluate()</code> ひとつです。 この関数が、チューニングと評価を実行して、結果を <code>ENMevaluation</code> というオブジェクトにまとめて返します。 結果には、評価指標の表、設定ごとのモデル、設定ごとの予測ラスター（地図）が入っています。</p>
 <p>このチュートリアルでは次の流れを順に体験します。</p>
 <ol type="1">
-<li>準備(R と作業フォルダ、パッケージ)</li>
-<li>データの取得と前処理(出現記録、気候データ、背景範囲、背景点)</li>
-<li>評価用のデータ分割(パーティション)</li>
+<li>準備（R と作業フォルダ、パッケージ）</li>
+<li>データの取得と前処理（出現記録、気候データ、背景範囲、背景点）</li>
+<li>評価用のデータ分割（パーティション）</li>
 <li><code>ENMevaluate()</code> によるモデルのチューニング</li>
 <li>結果の確認と可視化</li>
 <li>モデル選択</li>
-<li>(発展)ヌルモデル</li>
+<li>（発展）ヌルモデル</li>
 </ol>
 </section>
 <section id="setup" class="level1" data-number="2">
@@ -284,12 +284,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="2.1" class="anchored" data-anchor-id="how-to-run"><span class="header-section-number">2.1</span> このチュートリアルのコードを実行する 2 つの方法</h2>
 <p>このページに出てくる灰色のコードブロックを、自分のパソコンの R で実行しながら読み進めます。 実行のしかたは、次の 2 通りです。</p>
 <section id="method-script" class="level3" data-number="2.1.1">
-<h3 data-number="2.1.1" class="anchored" data-anchor-id="method-script"><span class="header-section-number">2.1.1</span> 方法 1:新しい R スクリプトにコードをコピーして実行する(おすすめ)</h3>
-<p><strong>R に慣れていない人は、こちらをおすすめします。</strong> 用意するものは、R(できれば RStudio)だけです。</p>
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="method-script"><span class="header-section-number">2.1.1</span> 方法 1:新しい R スクリプトにコードをコピーして実行する（おすすめ）</h3>
+<p><strong>R に慣れていない人は、こちらをおすすめします。</strong> 用意するものは、R（できれば RStudio）だけです。</p>
 <ol type="1">
-<li>空の R スクリプト(<code>.R</code> ファイル)を新しく作ります。RStudio なら、メニューの <strong>File → New File → R Script</strong> です。 適当な名前(たとえば <code>enmeval-tutorial.R</code>)で保存しておきます。</li>
+<li>空の R スクリプト（<code>.R</code> ファイル）を新しく作ります。RStudio なら、メニューの <strong>File → New File → R Script</strong> です。 適当な名前（たとえば <code>enmeval-tutorial.R</code>）で保存しておきます。</li>
 <li>このページのコードブロックを、<strong>上から順に、1 つずつ</strong> スクリプトにコピーします。 コードブロックの右上にマウスを置くと出てくる <strong>コピーボタン</strong> が便利です。</li>
-<li>コピーしたら、そのコードを選択して実行します。RStudio では、実行したい行にカーソルを置いて(または複数行を選択して) <strong>Ctrl + Enter</strong>(Mac は <strong>Cmd + Enter</strong>)です。 出力がページの結果(<code>#&gt;</code> で始まる行)と同じになるか、図が同じように表示されるか(RStudio の <strong>Plots</strong> パネル)を確かめながら進みます。</li>
+<li>コピーしたら、そのコードを選択して実行します。RStudio では、実行したい行にカーソルを置いて（または複数行を選択して） <strong>Ctrl + Enter</strong>（Mac は <strong>Cmd + Enter</strong>）です。 出力がページの結果（<code>#&gt;</code> で始まる行）と同じになるか、図が同じように表示されるか（RStudio の <strong>Plots</strong> パネル）を確かめながら進みます。</li>
 </ol>
 <div class="callout callout-style-simple callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -302,32 +302,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><strong>かならず上から順に実行してください。</strong> あとのコードは、前のコードで作ったオブジェクト(<code>occs</code>、<code>envs</code>、<code>bg</code> など)を使います。 順番を飛ばしたり、R を再起動したりしたあとは、必要な部分を上から実行し直してください。</li>
-<li>灰色のブロックの中で <code>#&gt;</code> で始まる行は、<strong>実行結果の表示</strong>です。コピーしなくてかまいません(<code>#</code> で始まる行は R に無視されるので、コピーしても害はありません)。</li>
-<li><code>{r}</code> ではなく <code>```r</code> と書かれたブロック(たとえば <code>getwd()</code> の例)は、このページでは実行されない <strong>見本</strong> です。実行して試してかまいません。</li>
+<li><strong>かならず上から順に実行してください。</strong> あとのコードは、前のコードで作ったオブジェクト（<code>occs</code>、<code>envs</code>、<code>bg</code> など）を使います。 順番を飛ばしたり、R を再起動したりしたあとは、必要な部分を上から実行し直してください。</li>
+<li>灰色のブロックの中で <code>#&gt;</code> で始まる行は、<strong>実行結果の表示</strong>です。コピーしなくてかまいません（<code>#</code> で始まる行は R に無視されるので、コピーしても害はありません）。</li>
+<li><code>{r}</code> ではなく <code>```r</code> と書かれたブロック（たとえば <code>getwd()</code> の例）は、このページでは実行されない <strong>見本</strong> です。実行して試してかまいません。</li>
 <li>コピーしたスクリプトを保存しておけば、次回は最初から通して実行できます。</li>
 </ul>
 </div>
 </div>
 </section>
 <section id="method-qmd" class="level3" data-number="2.1.2">
-<h3 data-number="2.1.2" class="anchored" data-anchor-id="method-qmd"><span class="header-section-number">2.1.2</span> 方法 2:チュートリアルの Quarto ファイル(<code>.qmd</code>)をダウンロードして使う</h3>
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="method-qmd"><span class="header-section-number">2.1.2</span> 方法 2:チュートリアルの Quarto ファイル（<code>.qmd</code>）をダウンロードして使う</h3>
 <p>このページは、Quarto 文書 <strong><code>enmeval-tutorial-ja.qmd</code></strong> から作られています。 これをダウンロードして RStudio で開くと、コードをコピーしなくても、ブロックごとに実行できます。</p>
 <ul>
-<li>ダウンロード: <a href="https://raw.githubusercontent.com/joelnitta/enmeval-tutorial/main/enmeval-tutorial-ja.qmd">enmeval-tutorial-ja.qmd</a> (ブラウザに文章が表示されたら、右クリックして「名前を付けてリンク先を保存」するか、表示された内容をテキストファイルとして保存してください。拡張子は <code>.qmd</code> にします。)</li>
-<li>リポジトリ全体は <a href="https://github.com/joelnitta/enmeval-tutorial" class="uri">https://github.com/joelnitta/enmeval-tutorial</a> にあります(緑の <strong>Code</strong> ボタン → <strong>Download ZIP</strong>)。</li>
+<li>ダウンロード: <a href="https://raw.githubusercontent.com/joelnitta/enmeval-tutorial/main/enmeval-tutorial-ja.qmd">enmeval-tutorial-ja.qmd</a> （ブラウザに文章が表示されたら、右クリックして「名前を付けてリンク先を保存」するか、表示された内容をテキストファイルとして保存してください。拡張子は <code>.qmd</code> にします。）</li>
+<li>リポジトリ全体は <a href="https://github.com/joelnitta/enmeval-tutorial" class="uri">https://github.com/joelnitta/enmeval-tutorial</a> にあります（緑の <strong>Code</strong> ボタン → <strong>Download ZIP</strong>）。</li>
 </ul>
-<p>ダウンロードした <code>.qmd</code> ファイルは、<strong>作業用の新しいフォルダに入れ</strong>、RStudio で開きます (次の「<a href="#wd">R と作業フォルダ</a>」で説明するように、そのフォルダで RStudio プロジェクトを作ると便利です)。</p>
+<p>ダウンロードした <code>.qmd</code> ファイルは、<strong>作業用の新しいフォルダに入れ</strong>、RStudio で開きます （次の「<a href="#wd">R と作業フォルダ</a>」で説明するように、そのフォルダで RStudio プロジェクトを作ると便利です）。</p>
 <ul>
-<li><strong>ブロックごとに実行する</strong>:各コードブロックの右上の緑の三角ボタン(<strong>Run Current Chunk</strong>)を押します。 上のブロックから順に実行してください(方法 1 と同じ注意があてはまります)。</li>
-<li><strong>文書全体を描画する</strong>:<strong>Render</strong> ボタン(またはターミナルで <code>quarto render enmeval-tutorial-ja.qmd</code>)で、 すべてのコードを実行して、このページと同じ HTML ができます。初回は、データのダウンロードを含めて <strong>約 5 分</strong> かかります。 描画には、<a href="https://quarto.org/">Quarto</a>(RStudio の最近のバージョンには同梱されています)が必要です。</li>
+<li><strong>ブロックごとに実行する</strong>:各コードブロックの右上の緑の三角ボタン（<strong>Run Current Chunk</strong>）を押します。 上のブロックから順に実行してください（方法 1 と同じ注意があてはまります）。</li>
+<li><strong>文書全体を描画する</strong>:<strong>Render</strong> ボタン（またはターミナルで <code>quarto render enmeval-tutorial-ja.qmd</code>）で、 すべてのコードを実行して、このページと同じ HTML ができます。初回は、データのダウンロードを含めて <strong>約 5 分</strong> かかります。 描画には、<a href="https://quarto.org/">Quarto</a>（RStudio の最近のバージョンには同梱されています）が必要です。</li>
 </ul>
 </section>
 </section>
 <section id="wd" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="wd"><span class="header-section-number">2.2</span> R と作業フォルダ(working directory)</h2>
-<p>R は、<strong>作業フォルダ</strong>(working directory)を基準にして、ファイルを探したり保存したりします。 どこが作業フォルダなのかを知らないままコードを実行すると、「ファイルが見つかりません」というエラーの原因になります。</p>
-<p>このチュートリアルのコードは、作業フォルダの下に <code>data/</code> というフォルダを作り、 ダウンロードしたデータ(出現記録、気候データなど)を <strong>すべてそこに保存します</strong>。 そのため、作業フォルダを、このチュートリアル専用のフォルダにしておくと、ファイルが散らかりません。</p>
+<h2 data-number="2.2" class="anchored" data-anchor-id="wd"><span class="header-section-number">2.2</span> R と作業フォルダ（working directory）</h2>
+<p>R は、<strong>作業フォルダ</strong>（working directory）を基準にして、ファイルを探したり保存したりします。 どこが作業フォルダなのかを知らないままコードを実行すると、「ファイルが見つかりません」というエラーの原因になります。</p>
+<p>このチュートリアルのコードは、作業フォルダの下に <code>data/</code> というフォルダを作り、 ダウンロードしたデータ（出現記録、気候データなど）を <strong>すべてそこに保存します</strong>。 そのため、作業フォルダを、このチュートリアル専用のフォルダにしておくと、ファイルが散らかりません。</p>
 <div class="callout callout-style-simple callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -340,18 +340,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="callout-body-container callout-body">
 <p>次のコードで、いまの作業フォルダがわかります。</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>.qmd</code> ファイルを Render するとき(方法 2)は、作業フォルダは自動的に <strong>その <code>.qmd</code> ファイルがあるフォルダ</strong> になります。</p>
+<p><code>.qmd</code> ファイルを Render するとき（方法 2）は、作業フォルダは自動的に <strong>その <code>.qmd</code> ファイルがあるフォルダ</strong> になります。</p>
 </div>
 </div>
 <section id="rstudio-project" class="level3" data-number="2.2.1">
 <h3 data-number="2.2.1" class="anchored" data-anchor-id="rstudio-project"><span class="header-section-number">2.2.1</span> RStudio を使う場合:プロジェクトを作ろう</h3>
 <p>RStudio を使うなら、このチュートリアルの作業は <strong>RStudio プロジェクト</strong> の中で行うことを強くおすすめします。</p>
-<p><strong>RStudio プロジェクトとは</strong>:ひとつのフォルダを「ひとつの解析の拠点」として登録する仕組みです。 フォルダの中に <code>.Rproj</code> という小さなファイルができ、そのファイルを開く(またはプロジェクトを開く)と、次のようになります。</p>
+<p><strong>RStudio プロジェクトとは</strong>:ひとつのフォルダを「ひとつの解析の拠点」として登録する仕組みです。 フォルダの中に <code>.Rproj</code> という小さなファイルができ、そのファイルを開く（またはプロジェクトを開く）と、次のようになります。</p>
 <ul>
 <li><strong>作業フォルダが自動的にそのフォルダになります。</strong> <code>setwd()</code> を書く必要がなく、「ファイルが見つかりません」というエラーを大きく減らせます。</li>
 <li>RStudio が、そのプロジェクトで最後に開いていたファイルを覚えていて、次に開いたときに復元してくれます。</li>
-<li>解析ごとにフォルダ(プロジェクト)を分けられるので、複数の解析のファイルが混ざりません。</li>
-<li>フォルダごと他の人に渡しても、同じように動きます(<code>setwd("/Users/自分の名前/...")</code> のような、自分のパソコンだけで通用する書き方を避けられます)。</li>
+<li>解析ごとにフォルダ（プロジェクト）を分けられるので、複数の解析のファイルが混ざりません。</li>
+<li>フォルダごと他の人に渡しても、同じように動きます（<code>setwd("/Users/自分の名前/...")</code> のような、自分のパソコンだけで通用する書き方を避けられます）。</li>
 </ul>
 <div class="callout callout-style-simple callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -365,12 +365,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="callout-body-container callout-body">
 <ol type="1">
 <li>RStudio で、メニューの <strong>File → New Project…</strong> を選びます。</li>
-<li><strong>New Directory → New Project</strong> を選び、<strong>Directory name</strong>(フォルダ名。たとえば <code>enmeval-tutorial</code>)と、 フォルダを作る場所(<strong>Create project as subdirectory of</strong>)を指定して、<strong>Create Project</strong> を押します。 (方法 2 で、<code>.qmd</code> ファイルをすでにフォルダに入れてある場合は、<strong>Existing Directory</strong> を選んで、そのフォルダを指定します。)</li>
+<li><strong>New Directory → New Project</strong> を選び、<strong>Directory name</strong>（フォルダ名。たとえば <code>enmeval-tutorial</code>）と、 フォルダを作る場所（<strong>Create project as subdirectory of</strong>）を指定して、<strong>Create Project</strong> を押します。 （方法 2 で、<code>.qmd</code> ファイルをすでにフォルダに入れてある場合は、<strong>Existing Directory</strong> を選んで、そのフォルダを指定します。）</li>
 <li>RStudio が再起動し、右上にプロジェクトの名前が表示されます。</li>
 <li>左下の <strong>Files</strong> パネルに <code>.Rproj</code> ファイルが見えれば成功です。 方法 1 の人は、ここで <strong>File → New File → R Script</strong> で空のスクリプトを作り、保存します。</li>
 <li>Console で <code>getwd()</code> を実行して、作業フォルダがプロジェクトのフォルダになっていることを確認します。</li>
 </ol>
-<p>次回からは、<strong><code>.Rproj</code> ファイルをダブルクリック</strong>(または RStudio の File → Open Project…)して開きます。</p>
+<p>次回からは、<strong><code>.Rproj</code> ファイルをダブルクリック</strong>（または RStudio の File → Open Project…）して開きます。</p>
 </div>
 </div>
 <div class="callout callout-style-simple callout-note callout-titled">
@@ -421,7 +421,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="seed" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="seed"><span class="header-section-number">2.4</span> 乱数シードを設定する</h2>
-<p>背景点のランダム抽出など、このあと乱数を使う場面があります。 <strong>乱数シード</strong>(<code>set.seed()</code>)を固定しておくと、同じコードを実行したときに同じ乱数が得られ、結果を再現できます。</p>
+<p>背景点のランダム抽出など、このあと乱数を使う場面があります。 <strong>乱数シード</strong>（<code>set.seed()</code>）を固定しておくと、同じコードを実行したときに同じ乱数が得られ、結果を再現できます。</p>
 </section>
 </section>
 <section id="data" class="level1" data-number="3">
@@ -442,22 +442,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 乱数シードを固定して、解析を再現できるようにする</span></span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">48</span>)</span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># terra の地図の色を plasma パレットにする(このページの地図と同じ見た目になる)</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># terra の地図の色を plasma パレットにする（このページの地図と同じ見た目になる）</span></span>
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">terra.pal =</span> terra<span class="sc">::</span><span class="fu">map.pal</span>(<span class="st">"plasma"</span>, <span class="dv">100</span>))</span>
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co"># ダウンロードしたデータを保存するフォルダ(なければ作る)</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co"># ダウンロードしたデータを保存するフォルダ（なければ作る）</span></span>
 <span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">"data"</span>, <span class="at">showWarnings =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="occ" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="occ"><span class="header-section-number">3.2</span> 出現記録のダウンロード</h2>
-<p>最初の例として、ナマケモノの一種 <a href="https://ja.wikipedia.org/wiki/ノドジロミユビナマケモノ"><em>Bradypus variegatus</em></a>(ノドジロミユビナマケモノ)の出現記録を使います。 出現記録は、世界中の生物の観察・標本記録を集めたデータベース <a href="https://www.gbif.org/">GBIF</a> から、<code>rgbif</code> パッケージでダウンロードします。</p>
+<p>最初の例として、ナマケモノの一種 <a href="https://ja.wikipedia.org/wiki/ノドジロミユビナマケモノ"><em>Bradypus variegatus</em></a>（ノドジロミユビナマケモノ）の出現記録を使います。 出現記録は、世界中の生物の観察・標本記録を集めたデータベース <a href="https://www.gbif.org/">GBIF</a> から、<code>rgbif</code> パッケージでダウンロードします。</p>
 <p>ここで大事なのは、<strong>「一度だけダウンロードして、保存したものを何度も再利用する」</strong> というやり方です。</p>
 <ul>
 <li>ダウンロードは時間がかかり、インターネット接続も必要です。</li>
 <li>GBIF のデータは日々更新されるので、毎回ダウンロードすると、実行のたびにデータが変わって結果が再現できません。</li>
 </ul>
-<p>そこで、次のコードは (1) <code>data/bvariegatus.rds</code> がまだなければ GBIF からダウンロードして保存し、 (2) そのあとは、いつも保存したファイルを読み込む、という流れになっています。 <code>.rds</code> は、R のオブジェクトをそのまま保存・読み込みできる形式です(<code>saveRDS()</code> で保存、<code>readRDS()</code> で読み込み)。</p>
+<p>そこで、次のコードは （1） <code>data/bvariegatus.rds</code> がまだなければ GBIF からダウンロードして保存し、 （2） そのあとは、いつも保存したファイルを読み込む、という流れになっています。 <code>.rds</code> は、R のオブジェクトをそのまま保存・読み込みできる形式です（<code>saveRDS()</code> で保存、<code>readRDS()</code> で読み込み）。</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>occs.file <span class="ot">&lt;-</span> <span class="st">"data/bvariegatus.rds"</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -474,7 +474,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 保存したファイルを読み込む</span></span>
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>occs <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(occs.file)</span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 全く同じ座標の記録を除く(擬似反復を避けるための基本的な作業)</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 全く同じ座標の記録を除く（擬似反復を避けるための基本的な作業）</span></span>
 <span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>occs <span class="ot">&lt;-</span> occs[<span class="sc">!</span><span class="fu">duplicated</span>(occs), ]</span>
 <span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(occs)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -491,7 +491,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>元の vignette は、あらかじめ保存された記録(<code>bvariegatus.rds</code>)を読み込んでいます。 この版は GBIF から直接ダウンロードしますが、検索の条件(最初の 300 件)が同じなので、今のところ、ほぼ同じ記録が得られます。 ただし、GBIF の記録は日々更新されるため、将来ダウンロードすると、件数や、このあとの数値・図が英語版と一致しなくなるかもしれません。 いちど <code>data/bvariegatus.rds</code> を保存してしまえば、それ以降はずっと同じデータを使えます。</p>
+<p>元の vignette は、あらかじめ保存された記録（<code>bvariegatus.rds</code>）を読み込んでいます。 この版は GBIF から直接ダウンロードしますが、検索の条件（最初の 300 件）が同じなので、今のところ、ほぼ同じ記録が得られます。 ただし、GBIF の記録は日々更新されるため、将来ダウンロードすると、件数や、このあとの数値・図が英語版と一致しなくなるかもしれません。 いちど <code>data/bvariegatus.rds</code> を保存してしまえば、それ以降はずっと同じデータを使えます。</p>
 </div>
 </div>
 <div class="callout callout-style-simple callout-tip callout-titled">
@@ -506,18 +506,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="callout-body-container callout-body">
 <p><code>readRDS()</code> で「ファイルがない」というエラーが出たら、次を確認してください。</p>
 <ol type="1">
-<li>作業フォルダはどこか(<code>getwd()</code>)。</li>
-<li><code>data</code> フォルダの中に <code>bvariegatus.rds</code> があるか(<code>list.files("data")</code>)。</li>
-<li>インターネットに接続されているか(最初の 1 回だけ必要)。</li>
+<li>作業フォルダはどこか（<code>getwd()</code>）。</li>
+<li><code>data</code> フォルダの中に <code>bvariegatus.rds</code> があるか（<code>list.files("data")</code>）。</li>
+<li>インターネットに接続されているか（最初の 1 回だけ必要）。</li>
 </ol>
 </div>
 </div>
 </section>
 <section id="env" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="env"><span class="header-section-number">3.3</span> 気候データのダウンロード</h2>
-<p>種のニッチ(適した環境)は、長期間の平均的な気候データ <a href="https://www.worldclim.org/">WorldClim 2.1</a> を使って推定します。 ここでは、19 個の <strong>生物気候変数</strong>(bioclimatic variables、<code>bio1</code>〜<code>bio19</code>。年平均気温や年降水量などから計算される指標。 一覧は <a href="https://www.worldclim.org/data/bioclim.html" class="uri">https://www.worldclim.org/data/bioclim.html</a>)を、解像度 5 分(赤道付近で約 10 km 四方)で使います。</p>
-<p><code>geodata::worldclim_global()</code> は、指定したフォルダにすでにファイルがあれば、ダウンロードを省略して読み込みます。 このため、出現記録と同じように、<strong>初回だけダウンロードされ、2 回目以降は保存済みのファイルが使われます</strong>。 (ダウンロードは数百 MB あるので、初回は時間がかかります。)</p>
-<p>得られる <code>envs</code> は <strong>SpatRaster</strong>(<code>terra</code> パッケージのラスター形式)で、 複数の変数(レイヤー)を重ねた「地図の束」です。</p>
+<p>種のニッチ（適した環境）は、長期間の平均的な気候データ <a href="https://www.worldclim.org/">WorldClim 2.1</a> を使って推定します。 ここでは、19 個の <strong>生物気候変数</strong>（bioclimatic variables、<code>bio1</code>〜<code>bio19</code>。年平均気温や年降水量などから計算される指標。 一覧は <a href="https://www.worldclim.org/data/bioclim.html" class="uri">https://www.worldclim.org/data/bioclim.html</a>）を、解像度 5 分（赤道付近で約 10 km 四方）で使います。</p>
+<p><code>geodata::worldclim_global()</code> は、指定したフォルダにすでにファイルがあれば、ダウンロードを省略して読み込みます。 このため、出現記録と同じように、<strong>初回だけダウンロードされ、2 回目以降は保存済みのファイルが使われます</strong>。 （ダウンロードは数百 MB あるので、初回は時間がかかります。）</p>
+<p>得られる <code>envs</code> は <strong>SpatRaster</strong>（<code>terra</code> パッケージのラスター形式）で、 複数の変数（レイヤー）を重ねた「地図の束」です。</p>
 <div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -528,23 +528,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>ラスター</strong>は、地図を格子(セル)に区切り、セルごとに値(ここでは気温など)を持たせたデータです。 <code>plot()</code> で地図として表示でき、<code>terra::extract()</code> で、指定した座標のセルの値を取り出せます。</p>
+<p><strong>ラスター</strong>は、地図を格子（セル）に区切り、セルごとに値（ここでは気温など）を持たせたデータです。 <code>plot()</code> で地図として表示でき、<code>terra::extract()</code> で、指定した座標のセルの値を取り出せます。</p>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># WorldClim 2.1 の 19 個の生物気候変数をダウンロード(すでにあれば読み込むだけ)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># WorldClim 2.1 の 19 個の生物気候変数をダウンロード（すでにあれば読み込むだけ）</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>envs <span class="ot">&lt;-</span> geodata<span class="sc">::</span><span class="fu">worldclim_global</span>(<span class="at">var =</span> <span class="st">"bio"</span>, <span class="at">res =</span> <span class="dv">5</span>, <span class="at">path =</span> <span class="st">"data"</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># レイヤー名を bio1〜bio19 にわかりやすく変更する</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(envs) <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">"bio"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">19</span>, <span class="at">sep =</span> <span class="st">""</span>)</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 関心のある範囲(南アメリカ周辺)だけを切り出す。ext(西端, 東端, 南端, 北端)</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 関心のある範囲（南アメリカ周辺）だけを切り出す。ext(西端, 東端, 南端, 北端)</span></span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>extent <span class="ot">&lt;-</span> <span class="fu">ext</span>(<span class="sc">-</span><span class="dv">125</span>, <span class="sc">-</span><span class="dv">32</span>, <span class="sc">-</span><span class="dv">56</span>, <span class="dv">40</span>)</span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>envs <span class="ot">&lt;-</span> <span class="fu">crop</span>(envs, extent)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <section id="vif" class="level3" data-number="3.3.1">
-<h3 data-number="3.3.1" class="anchored" data-anchor-id="vif"><span class="header-section-number">3.3.1</span> 相関の強い変数を除く(VIF)</h3>
-<p>気候変数の多くは互いに強く相関しています。 相関の強い変数をそのまま使うと、機械学習の手法であっても、結果が不正確になることがあります。 そこで、<strong>分散拡大係数</strong>(VIF; variance inflation factor。変数どうしの相関の強さを表す指標)が高い変数を除きます。</p>
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="vif"><span class="header-section-number">3.3.1</span> 相関の強い変数を除く（VIF）</h3>
+<p>気候変数の多くは互いに強く相関しています。 相関の強い変数をそのまま使うと、機械学習の手法であっても、結果が不正確になることがあります。 そこで、<strong>分散拡大係数</strong>（VIF; variance inflation factor。変数どうしの相関の強さを表す指標）が高い変数を除きます。</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># VIF が高い変数を順に除いていく</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>envs.vif <span class="ot">&lt;-</span> usdm<span class="sc">::</span><span class="fu">vifstep</span>(envs)</span>
@@ -572,15 +572,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Kass et al.&nbsp;(2022)(アリの全球解析)は、投影(将来や別地域への予測)を行わないため、19 変数すべてを使い、正則化に任せました。 一方、この VIF による変数選択は、気候変動下での予測など別の環境への投影を行う場合には、より安全な選択です。 解析の目的に合わせて決めてください。</p>
+<p>Kass et al.&nbsp;(2022)（アリの全球解析）は、投影（将来や別地域への予測）を行わないため、19 変数すべてを使い、正則化に任せました。 一方、この VIF による変数選択は、気候変動下での予測など別の環境への投影を行う場合には、より安全な選択です。 解析の目的に合わせて決めてください。</p>
 </div>
 </div>
 </section>
 <section id="celldup" class="level3" data-number="3.3.2">
 <h3 data-number="3.3.2" class="anchored" data-anchor-id="celldup"><span class="header-section-number">3.3.2</span> 同じセルにある記録を除く</h3>
-<p>次に、予測変数ラスターの <strong>同じセル</strong> に入っている記録(セル重複)を除きます。 Maxent は、既定でこの処理をしてくれますが、他のアルゴリズムでは、研究の目的によって、する場合としない場合があります。 また、記録の間隔を一定以上あける <strong>空間的間引き</strong>(spatial thinning; Aiello-Lammens et al.&nbsp;2015)という方法もあります。</p>
+<p>次に、予測変数ラスターの <strong>同じセル</strong> に入っている記録（セル重複）を除きます。 Maxent は、既定でこの処理をしてくれますが、他のアルゴリズムでは、研究の目的によって、する場合としない場合があります。 また、記録の間隔を一定以上あける <strong>空間的間引き</strong>（spatial thinning; Aiello-Lammens et al.&nbsp;2015）という方法もあります。</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 各記録がどのセルに入っているか(cellnumbers = TRUE でセル番号を得る)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 各記録がどのセルに入っているか（cellnumbers = TRUE でセル番号を得る）</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>occs.cells <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">extract</span>(envs[[<span class="dv">1</span>]], occs, <span class="at">cellnumbers =</span> <span class="cn">TRUE</span>, <span class="at">ID =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 同じセル番号が 2 回目以降に出てくる記録を調べて除く</span></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>occs.cellDups <span class="ot">&lt;-</span> <span class="fu">duplicated</span>(occs.cells[, <span class="dv">1</span>])</span>
@@ -600,15 +600,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><code>maxnet</code>(このチュートリアルで使う R だけで動く Maxent の実装)は、Java 版 Maxent と違い、 <strong>同じセルの重複記録を自動では除きません</strong>。 このコードのように、自分でセル重複の除去(または間引き)をしてください。 また、間引きの距離とラスターの解像度は、記録の位置精度にあわせます。</p>
+<p><code>maxnet</code>（このチュートリアルで使う R だけで動く Maxent の実装）は、Java 版 Maxent と違い、 <strong>同じセルの重複記録を自動では除きません</strong>。 このコードのように、自分でセル重複の除去（または間引き）をしてください。 また、間引きの距離とラスターの解像度は、記録の位置精度にあわせます。</p>
 </div>
 </div>
 </section>
 <section id="plot-occ" class="level3" data-number="3.3.3">
 <h3 data-number="3.3.3" class="anchored" data-anchor-id="plot-occ"><span class="header-section-number">3.3.3</span> 地図に出現記録を重ねる</h3>
-<p>1 番目のレイヤー(<code>bio1</code>、年平均気温)に、出現記録を重ねて描いてみます。</p>
+<p>1 番目のレイヤー（<code>bio1</code>、年平均気温）に、出現記録を重ねて描いてみます。</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1 番目のラスター(年平均気温)を描く</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1 番目のラスター（年平均気温）を描く</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(envs[[<span class="dv">1</span>]], <span class="at">main =</span> <span class="st">"Mean annual temperature"</span>)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 出現記録を点で重ねる</span></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(occs)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
@@ -625,7 +625,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 緯度が -20 より北、かつ経度が -45 より西の記録だけを残す</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>occs <span class="ot">&lt;-</span> <span class="fu">filter</span>(occs, latitude <span class="sc">&gt;</span> <span class="sc">-</span><span class="dv">20</span>, longitude <span class="sc">&lt;</span> <span class="sc">-</span><span class="dv">45</span>)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 絞り込みがうまくいったか、もう一度描いて確かめる(新しい図に描き直す)</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 絞り込みがうまくいったか、もう一度描いて確かめる（新しい図に描き直す）</span></span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(envs[[<span class="dv">1</span>]], <span class="at">main =</span> <span class="st">"Mean annual temperature"</span>)</span>
 <span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(occs)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
@@ -642,7 +642,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">ノート</span>補足:<code>points()</code> は「重ね描き」
+<span class="screen-reader-only">ノート</span>補足:<code>points（）</code> は「重ね描き」
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -652,13 +652,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </section>
 <section id="mess" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="mess"><span class="header-section-number">3.4</span> 環境の類似度(MESS)</h2>
-<p>調査範囲のうち、出現地点の環境とは気候が大きく異なる場所を、 <strong>MESS</strong>(Multivariate Environmental Similarity Surface; Elith et al.&nbsp;2010)で調べてみます。 値が大きいほど出現地点の環境に似ていて、値が小さい(負に大きい)ほど違うことを表します。 出現地点の環境と大きく異なる場所への予測は不確実性が高いので、 別の時代や別の地域へ予測する(<strong>モデルの転用</strong>)ときには、とくに重要です。</p>
+<h2 data-number="3.4" class="anchored" data-anchor-id="mess"><span class="header-section-number">3.4</span> 環境の類似度（MESS）</h2>
+<p>調査範囲のうち、出現地点の環境とは気候が大きく異なる場所を、 <strong>MESS</strong>（Multivariate Environmental Similarity Surface; Elith et al.&nbsp;2010）で調べてみます。 値が大きいほど出現地点の環境に似ていて、値が小さい（負に大きい）ほど違うことを表します。 出現地点の環境と大きく異なる場所への予測は不確実性が高いので、 別の時代や別の地域へ予測する（<strong>モデルの転用</strong>）ときには、とくに重要です。</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 出現地点の環境変数の値を取り出す(これが「基準」になる)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 出現地点の環境変数の値を取り出す（これが「基準」になる）</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>occs.z <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">extract</span>(envs, occs, <span class="at">ID =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 環境変数が NA の記録(海上など)を探して除く</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 環境変数が NA の記録（海上など）を探して除く</span></span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>occs.na <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="fu">rowSums</span>(<span class="fu">is.na</span>(occs.z)) <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">length</span>(occs.na) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  occs <span class="ot">&lt;-</span> occs[<span class="sc">-</span>occs.na, ]</span>
@@ -687,17 +687,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>元の vignette では <code>occs &lt;- occs[-occs.na, ]</code> と書かれています。 ところが、<code>occs.na</code> が <strong>空</strong>(NA の記録が 1 つもない)だと、 R の <code>x[-integer(0), ]</code> は <strong>すべての行を除いてしまいます</strong>(0 行のデータになる)。 データを更新したときに突然壊れる原因になるので、ここでは <code>if (length(occs.na) &gt; 0)</code> で守っています。</p>
+<p>元の vignette では <code>occs &lt;- occs[-occs.na, ]</code> と書かれています。 ところが、<code>occs.na</code> が <strong>空</strong>（NA の記録が 1 つもない）だと、 R の <code>x[-integer(0), ]</code> は <strong>すべての行を除いてしまいます</strong>（0 行のデータになる）。 データを更新したときに突然壊れる原因になるので、ここでは <code>if (length(occs.na) &gt; 0)</code> で守っています。</p>
 </div>
 </div>
 </section>
 <section id="background" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="background"><span class="header-section-number">3.5</span> 背景範囲と背景点</h2>
-<p>Maxent などの <strong>出現のみ(presence-background)モデル</strong>は、 出現地点の環境と、<strong>背景</strong>(調査範囲の中のランダムな地点)の環境を比べて、 種が好む環境を推定します。 そのため、背景点をどこから取るか(背景範囲)を決める必要があります。</p>
-<p>その種に適しているのに、分散の制約などで分布していない場所を含めないように、 背景範囲は、出現地点の周囲に限るのが無難です(VanDerWal et al.&nbsp;2009, Merow et al.&nbsp;2013)。 ここでは、すべての出現地点を 500 km のバッファー(緩衝域)で囲んだ範囲を使います。 バッファーは、<code>sf</code> パッケージ(地理空間ベクターデータを扱う)で作ります。</p>
+<p>Maxent などの <strong>出現のみ（presence-background）モデル</strong>は、 出現地点の環境と、<strong>背景</strong>（調査範囲の中のランダムな地点）の環境を比べて、 種が好む環境を推定します。 そのため、背景点をどこから取るか（背景範囲）を決める必要があります。</p>
+<p>その種に適しているのに、分散の制約などで分布していない場所を含めないように、 背景範囲は、出現地点の周囲に限るのが無難です（VanDerWal et al.&nbsp;2009, Merow et al.&nbsp;2013）。 ここでは、すべての出現地点を 500 km のバッファー（緩衝域）で囲んだ範囲を使います。 バッファーは、<code>sf</code> パッケージ（地理空間ベクターデータを扱う）で作ります。</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 出現記録を sf オブジェクト(座標付きの点)に変換する。</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 座標系(CRS)は、気候ラスターと同じ WGS84(緯度経度)。</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 出現記録を sf オブジェクト（座標付きの点）に変換する。</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 座標系（CRS）は、気候ラスターと同じ WGS84（緯度経度）。</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>occs.sf <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">st_as_sf</span>(occs, <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"longitude"</span>, <span class="st">"latitude"</span>),</span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">crs =</span> terra<span class="sc">::</span><span class="fu">crs</span>(envs))</span>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
@@ -707,7 +707,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>occs.sf <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">st_transform</span>(occs.sf, <span class="at">crs =</span> eckertIV)</span>
 <span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 500 km のバッファーを作り、1 つにまとめて、緯度経度に戻す</span></span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="co"># (500 km なら、カリブ海の島々は含まれない)</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="co"># （500 km なら、カリブ海の島々は含まれない）</span></span>
 <span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>occs.buf <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">st_buffer</span>(occs.sf, <span class="at">dist =</span> <span class="dv">500000</span>) <span class="sc">|&gt;</span></span>
 <span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>  sf<span class="sc">::</span><span class="fu">st_union</span>() <span class="sc">|&gt;</span></span>
 <span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>  sf<span class="sc">::</span><span class="fu">st_sf</span>() <span class="sc">|&gt;</span></span>
@@ -731,18 +731,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">ノート</span>補足:<code>|&gt;</code> (パイプ)
+<span class="screen-reader-only">ノート</span>補足:<code>|&gt;</code>（パイプ）
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p><code>x |&gt; f() |&gt; g()</code> は <code>g(f(x))</code> と同じ意味です。「x を f に渡し、その結果を g に渡す」と、左から右へ順に読めます。</p>
 </div>
 </div>
-<p>続いて、環境ラスターをバッファーの範囲に切り出し(<code>crop</code>)、バッファーの形で切り抜きます(<code>mask</code>)。</p>
+<p>続いて、環境ラスターをバッファーの範囲に切り出し（<code>crop</code>）、バッファーの形で切り抜きます（<code>mask</code>）。</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># バッファーを含む四角形に切り出す</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>envs.bg <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">crop</span>(envs, occs.buf)</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># バッファーの形で切り抜く(外側は NA になる)</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># バッファーの形で切り抜く（外側は NA になる）</span></span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>envs.bg <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">mask</span>(envs.bg, occs.buf)</span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(envs.bg[[<span class="dv">1</span>]], <span class="at">main =</span> <span class="fu">names</span>(envs)[<span class="dv">1</span>])</span>
@@ -756,12 +756,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>背景点として、この範囲から 10,000 点をランダムに取ります。 (背景点の数も、研究ごとに考えるべき設定のひとつです。)</p>
+<p>背景点として、この範囲から 10,000 点をランダムに取ります。 （背景点の数も、研究ごとに考えるべき設定のひとつです。）</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 背景範囲のラスターから 10,000 点を無作為に抽出する(1 セルにつき最大 1 点)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 背景範囲のラスターから 10,000 点を無作為に抽出する（1 セルにつき最大 1 点）</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>bg <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">spatSample</span>(envs.bg, <span class="at">size =</span> <span class="dv">10000</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">values =</span> <span class="cn">FALSE</span>, <span class="at">xy =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> <span class="fu">as.data.frame</span>()</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 出現記録と同じ列名(longitude, latitude)にそろえる</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 出現記録と同じ列名（longitude, latitude）にそろえる</span></span>
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(bg) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(occs)</span>
 <span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 背景範囲をほぼ全域がカバーしている</span></span>
@@ -785,25 +785,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>ここでは背景点を一様ランダムに取りましたが、実際の出現記録には、採集の偏り(都市の近くや登山道沿いに記録が集中するなど)があることがよくあります。 その場合は、<strong>同じ分類群(グループ)全体の記録の密度</strong>(ターゲットグループ)に比例して背景点を取る方法が有効です(Phillips et al.&nbsp;2009)。 アリの研究(Kass et al.&nbsp;2022)も、全アリ記録の密度で重みづけして背景点を取っています。</p>
+<p>ここでは背景点を一様ランダムに取りましたが、実際の出現記録には、採集の偏り（都市の近くや登山道沿いに記録が集中するなど）があることがよくあります。 その場合は、<strong>同じ分類群（グループ）全体の記録の密度</strong>（ターゲットグループ）に比例して背景点を取る方法が有効です（Phillips et al.&nbsp;2009）。 アリの研究（Kass et al.&nbsp;2022）も、全アリ記録の密度で重みづけして背景点を取っています。</p>
 </div>
 </div>
 </section>
 </section>
 <section id="partition" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> 評価用のデータ分割(パーティション)</h1>
-<p><code>ENMevaluate()</code> は、まず出現記録を <strong>訓練用と検証用のグループ(fold)</strong> に分け、 交差検証(<em>k</em>-fold cross-validation)を行います。 分け方は 7 種類あり、<code>ENMevaluate()</code> の <code>partitions</code> 引数で選びます。 分割は、<code>ENMevaluate()</code> の内部で自動的に行われますが、 その前に自分で分割してみて、結果を図で確認することもできます。 このチュートリアルでは、実際の研究でよく使われる次の 4 種類を取り上げます。</p>
+<h1 data-number="4"><span class="header-section-number">4</span> 評価用のデータ分割（パーティション）</h1>
+<p><code>ENMevaluate()</code> は、まず出現記録を <strong>訓練用と検証用のグループ（fold）</strong> に分け、 交差検証（<em>k</em>-fold cross-validation）を行います。 分け方は 7 種類あり、<code>ENMevaluate()</code> の <code>partitions</code> 引数で選びます。 分割は、<code>ENMevaluate()</code> の内部で自動的に行われますが、 その前に自分で分割してみて、結果を図で確認することもできます。 このチュートリアルでは、実際の研究でよく使われる次の 4 種類を取り上げます。</p>
 <ol type="1">
-<li>空間ブロック(block)</li>
-<li>市松模様(checkerboard)</li>
-<li>ジャックナイフ(jackknife; leave-one-out)</li>
-<li>ランダム <em>k</em> 分割(random <em>k</em>-fold)</li>
+<li>空間ブロック（block）</li>
+<li>市松模様（checkerboard）</li>
+<li>ジャックナイフ（jackknife; leave-one-out）</li>
+<li>ランダム <em>k</em> 分割（random <em>k</em>-fold）</li>
 </ol>
-<p>(さらに、5. ユーザー定義の分割、6. 完全に独立したテストデータ、7. 階層的な市松模様もありますが、 このチュートリアルでは短い紹介にとどめます。)</p>
-<p>最初の 2 つ(と階層的市松模様)は、<strong>空間的に分けた分割</strong> です。 出現記録と背景点の両方を、位置にもとづいて検証グループに分けます。 近い場所のデータが訓練用と検証用の両方に入ると、 モデルの成績が実際より高く見えてしまう(空間自己相関)ので、それを避けるのが目的です (Veloz 2009, Roberts et al.&nbsp;2017)。</p>
+<p>（さらに、5. ユーザー定義の分割、6. 完全に独立したテストデータ、7. 階層的な市松模様もありますが、 このチュートリアルでは短い紹介にとどめます。）</p>
+<p>最初の 2 つ（と階層的市松模様）は、<strong>空間的に分けた分割</strong> です。 出現記録と背景点の両方を、位置にもとづいて検証グループに分けます。 近い場所のデータが訓練用と検証用の両方に入ると、 モデルの成績が実際より高く見えてしまう（空間自己相関）ので、それを避けるのが目的です (Veloz 2009, Roberts et al.&nbsp;2017)。</p>
 <section id="block" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="block"><span class="header-section-number">4.1</span> ブロック(block)</h2>
-<p><code>block</code> は、緯度線と経度線で、出現記録を 4 つのグループに(できるだけ同数に)分けます。 まず 1 方向で記録を 2 つに分け、次に、それぞれをもう一方向で 2 つに分けます。 背景点も、同じ線で 4 つのグループに分けます。 結果は、出現記録と背景点それぞれのグループ番号をもつリストです。</p>
+<h2 data-number="4.1" class="anchored" data-anchor-id="block"><span class="header-section-number">4.1</span> ブロック（block）</h2>
+<p><code>block</code> は、緯度線と経度線で、出現記録を 4 つのグループに（できるだけ同数に）分けます。 まず 1 方向で記録を 2 つに分け、次に、それぞれをもう一方向で 2 つに分けます。 背景点も、同じ線で 4 つのグループに分けます。 結果は、出現記録と背景点それぞれのグループ番号をもつリストです。</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>block <span class="ot">&lt;-</span> <span class="fu">get.block</span>(occs, bg, <span class="at">orientation =</span> <span class="st">"lat_lon"</span>)</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 各グループの出現記録数がほぼ等しいことを確かめる</span></span>
@@ -825,7 +825,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 背景点は、点の数が均等になるように分けられる(面積が均等になるわけではない)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 背景点は、点の数が均等になるように分けられる（面積が均等になるわけではない）</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">evalplot.grps</span>(<span class="at">pts =</span> bg, <span class="at">pts.grp =</span> block<span class="sc">$</span>bg.grp, <span class="at">envs =</span> envs.bg) <span class="sc">+</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">ggtitle</span>(<span class="st">"Spatial block partitions: background"</span>)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
@@ -838,11 +838,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>グループごとの環境が、他のグループとどのくらい違うかも調べられます。 そのために、出現記録と背景点の位置で環境変数の値を取り出しておきます。</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 出現記録と背景点の位置の環境変数の値(座標つき)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 出現記録と背景点の位置の環境変数の値（座標つき）</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>occs.z <span class="ot">&lt;-</span> <span class="fu">cbind</span>(occs, terra<span class="sc">::</span><span class="fu">extract</span>(envs, occs, <span class="at">ID =</span> <span class="cn">FALSE</span>))</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>bg.z <span class="ot">&lt;-</span> <span class="fu">cbind</span>(bg, terra<span class="sc">::</span><span class="fu">extract</span>(envs, bg, <span class="at">ID =</span> <span class="cn">FALSE</span>))</span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 各グループを基準にしたときの環境の類似度(MESS)のヒストグラム</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 各グループを基準にしたときの環境の類似度（MESS）のヒストグラム</span></span>
 <span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="fu">evalplot.envSim.hist</span>(<span class="at">occs.z =</span> occs.z, <span class="at">bg.z =</span> bg.z, <span class="at">occs.grp =</span> block<span class="sc">$</span>occs.grp,</span>
 <span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">bg.grp =</span> block<span class="sc">$</span>bg.grp, <span class="at">ref.data =</span> <span class="st">"occs"</span>)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
@@ -855,7 +855,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 調査範囲全体について、各検証グループを基準にした環境類似度の地図。</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co"># bb.buf は、地図の表示範囲を調整する(調査範囲の周りの余白)。</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co"># bb.buf は、地図の表示範囲を調整する（調査範囲の周りの余白）。</span></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">evalplot.envSim.map</span>(<span class="at">envs =</span> envs, <span class="at">occs.z =</span> occs.z, <span class="at">bg.z =</span> bg.z,</span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">occs.grp =</span> block<span class="sc">$</span>occs.grp, <span class="at">bg.grp =</span> block<span class="sc">$</span>bg.grp,</span>
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ref.data =</span> <span class="st">"occs"</span>, <span class="at">bb.buf =</span> <span class="dv">7</span>)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
@@ -869,7 +869,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 <section id="checkerboard" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="checkerboard"><span class="header-section-number">4.2</span> 市松模様(checkerboard)</h2>
+<h2 data-number="4.2" class="anchored" data-anchor-id="checkerboard"><span class="header-section-number">4.2</span> 市松模様（checkerboard）</h2>
 <p>市松模様の分割では、調査範囲に市松模様のマス目を作り、各記録がどのマスに入るかでグループを決めます。 ブロックと違い、地理的な空間は均等に分けますが、グループごとの記録数は均等になるとは限りません。 マス目の元になるラスターが必要で、ここでは予測変数のラスターを使います。 <strong>aggregation.factor</strong> は、何セルをまとめて 1 マスにするかを表します。</p>
 <p><code>basic checkerboard</code> は 2 グループ (<em>k</em> = 2) に分けます。</p>
 <div class="cell">
@@ -913,16 +913,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><strong>階層的市松模様</strong>(hierarchical checkerboard)は、<code>aggregation.factor = c(10, 10)</code> のように 2 つの値を渡すと、2 つのスケールで 4 グループに分けます。</li>
+<li><strong>階層的市松模様</strong>（hierarchical checkerboard）は、<code>aggregation.factor = c(10, 10)</code> のように 2 つの値を渡すと、2 つのスケールで 4 グループに分けます。</li>
 <li><code>aggregation.factor</code> を大きくすると、マスが大きくなり、グループ間の環境の違いが大きくなる傾向があります。</li>
 </ul>
 </div>
 </div>
 </section>
 <section id="jackknife" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="jackknife"><span class="header-section-number">4.3</span> ジャックナイフ(jackknife)</h2>
-<p>ここからの 2 つは、(a) 背景点を分けず(検証のたびに全背景点を使う)、(b) 空間自己相関を考慮しない、という点で、最初の 3 つと違います。</p>
-<p>記録が少ない場合(目安は約 25 地点未満)は、グループ数 <em>k</em> を記録数 <em>n</em> と同じにする <strong>ジャックナイフ(leave-one-out)</strong> 法が使えます (Pearson et al.&nbsp;2007, Shcheglovitova &amp; Anderson 2013)。 1 つの記録を除いてモデルを作り、除いた記録で検証する、という作業を <em>n</em> 回繰り返します。 <em>n</em> 個のモデルを作るので、記録が多いと時間がかかります。</p>
+<h2 data-number="4.3" class="anchored" data-anchor-id="jackknife"><span class="header-section-number">4.3</span> ジャックナイフ（jackknife）</h2>
+<p>ここからの 2 つは、（a） 背景点を分けず（検証のたびに全背景点を使う）、（b） 空間自己相関を考慮しない、という点で、最初の 3 つと違います。</p>
+<p>記録が少ない場合（目安は約 25 地点未満）は、グループ数 <em>k</em> を記録数 <em>n</em> と同じにする <strong>ジャックナイフ（leave-one-out）</strong> 法が使えます (Pearson et al.&nbsp;2007, Shcheglovitova &amp; Anderson 2013)。 1 つの記録を除いてモデルを作り、除いた記録で検証する、という作業を <em>n</em> 回繰り返します。 <em>n</em> 個のモデルを作るので、記録が多いと時間がかかります。</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>jack <span class="ot">&lt;-</span> <span class="fu">get.jackknife</span>(occs, bg)</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 記録が 10 点より多いと、凡例は表示されない</span></span>
@@ -937,8 +937,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 <section id="randomkfold" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="randomkfold"><span class="header-section-number">4.4</span> ランダム <em>k</em> 分割(random <em>k</em>-fold)</h2>
-<p>出現記録を、<em>k</em> 個のグループにランダムに分けます。 Maxent のソフトウェアの「cross-validate」と同じです。 記録が多いときには、たまたまグループが空間的に偏ることがあるため、 空間自己相関を避けたい場合には、空間的な分割のほうが望ましいです(Roberts et al.&nbsp;2017)。 ここでは 5 つのグループに分けます。</p>
+<h2 data-number="4.4" class="anchored" data-anchor-id="randomkfold"><span class="header-section-number">4.4</span> ランダム <em>k</em> 分割（random <em>k</em>-fold）</h2>
+<p>出現記録を、<em>k</em> 個のグループにランダムに分けます。 Maxent のソフトウェアの「cross-validate」と同じです。 記録が多いときには、たまたまグループが空間的に偏ることがあるため、 空間自己相関を避けたい場合には、空間的な分割のほうが望ましいです（Roberts et al.&nbsp;2017）。 ここでは 5 つのグループに分けます。</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>rand <span class="ot">&lt;-</span> <span class="fu">get.randomkfold</span>(occs, bg, <span class="at">k =</span> <span class="dv">5</span>)</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">evalplot.grps</span>(<span class="at">pts =</span> occs, <span class="at">pts.grp =</span> rand<span class="sc">$</span>occs.grp, <span class="at">envs =</span> envs.bg)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
@@ -970,8 +970,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Kass et al.&nbsp;(2022) は、記録が 25 地点未満の種では <strong>ジャックナイフ</strong>、25 地点以上では <strong>ランダム 5 分割</strong> を使いました。 現在の分布を地図にすることが目的で、別の環境への転用が目的ではなかったからです。 気候変動下での将来予測など、転用が目的なら、<strong>空間的な分割</strong>(<code>block</code> や <code>checkerboard</code>)が適しています。</p>
-<p>次のコードは、記録数で分割方法を切り替える例です(ここでは実行しません)。</p>
+<p>Kass et al.&nbsp;(2022) は、記録が 25 地点未満の種では <strong>ジャックナイフ</strong>、25 地点以上では <strong>ランダム 5 分割</strong> を使いました。 現在の分布を地図にすることが目的で、別の環境への転用が目的ではなかったからです。 気候変動下での将来予測など、転用が目的なら、<strong>空間的な分割</strong>（<code>block</code> や <code>checkerboard</code>）が適しています。</p>
+<p>次のコードは、記録数で分割方法を切り替える例です（ここでは実行しません）。</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 記録が 25 点未満ならジャックナイフ、それ以外はランダム 5 分割</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>partition.method <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="fu">nrow</span>(occs) <span class="sc">&lt;</span> <span class="dv">25</span>) <span class="st">"jackknife"</span> <span class="cf">else</span> <span class="st">"randomkfold"</span></span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -979,10 +979,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="user" class="level2" data-number="4.5">
 <h2 data-number="4.5" class="anchored" data-anchor-id="user"><span class="header-section-number">4.5</span> ユーザー定義の分割</h2>
-<p>最後の方法は、自分で分割を決めて渡す方法です。 たとえば、他のパッケージで作った分割を使えます。 ここでは <code>blockCV</code> パッケージ(Valavi et al.&nbsp;2019)で空間的な分割を作って <code>ENMeval</code> で使う例を紹介します。</p>
+<p>最後の方法は、自分で分割を決めて渡す方法です。 たとえば、他のパッケージで作った分割を使えます。 ここでは <code>blockCV</code> パッケージ（Valavi et al.&nbsp;2019）で空間的な分割を作って <code>ENMeval</code> で使う例を紹介します。</p>
 <p><code>ENMevaluate()</code> に渡すときには、<strong>出現記録 AND 背景点の両方</strong> のグループ番号が必要です。</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 出現記録と背景点をまとめて、sf オブジェクト(座標系は WGS84)にする</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 出現記録と背景点をまとめて、sf オブジェクト（座標系は WGS84）にする</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>occsBg.sf <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">st_as_sf</span>(<span class="fu">rbind</span>(occs, bg), <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"longitude"</span>, <span class="st">"latitude"</span>),</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">crs =</span> <span class="st">"+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"</span>)</span>
 <span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>terra<span class="sc">::</span><span class="fu">crs</span>(envs.bg) <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">crs</span>(occsBg.sf)</span>
@@ -1015,7 +1015,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>元の vignette には、<em>k</em>-means 法で出現記録を空間的にクラスタリングして分割する例もあります。 全背景点を使うには背景点のグループ番号をすべて 0 にします(<code>bg.grp &lt;- rep(0, nrow(bg))</code>)。</p>
+<p>元の vignette には、<em>k</em>-means 法で出現記録を空間的にクラスタリングして分割する例もあります。 全背景点を使うには背景点のグループ番号をすべて 0 にします（<code>bg.grp &lt;- rep(0, nrow(bg))</code>）。</p>
 </div>
 </div>
 <p>どの分割方法を選ぶかは、研究の目的と対象によって決めます。 詳しくは、<a href="#resources">参考文献</a>にある論文を見てください。</p>
@@ -1026,11 +1026,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>分割方法が決まったら、いよいよモデルを作ります。 <code>ENMeval</code> の主要関数 <code>ENMevaluate()</code> の出番です。</p>
 <section id="initial" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="initial"><span class="header-section-number">5.1</span> 基本的な考え方</h2>
-<p><code>ENMeval</code> は様々なアルゴリズムを扱えますが、ここでは <strong>Maxent</strong>(Phillips et al.&nbsp;2006, 2008, 2017)を、 R だけで動く <strong><code>maxnet</code></strong> パッケージで実行します。 Java は不要です。</p>
-<p>Maxent のチューニングで調整する主な設定は 2 つです(Elith et al.&nbsp;2011, Merow et al.&nbsp;2013)。</p>
+<p><code>ENMeval</code> は様々なアルゴリズムを扱えますが、ここでは <strong>Maxent</strong>（Phillips et al.&nbsp;2006, 2008, 2017）を、 R だけで動く <strong><code>maxnet</code></strong> パッケージで実行します。 Java は不要です。</p>
+<p>Maxent のチューニングで調整する主な設定は 2 つです（Elith et al.&nbsp;2011, Merow et al.&nbsp;2013）。</p>
 <ul>
-<li><strong>正則化の倍率(regularization multiplier; RM)</strong>:モデルに変数やその変換を入れることへのペナルティの強さです。大きいほど、単純で平らな(flatter)予測になります。</li>
-<li><strong>特徴クラス(feature class; FC)</strong>:応答曲線の形を決めます。<code>L</code> = 線形(linear)、<code>Q</code> = 二次(quadratic)、<code>H</code> = ヒンジ(hinge)、<code>P</code> = 積(product)、<code>T</code> = しきい値(threshold)。線形のみを許可すると、すべてを許可するより単純なモデルになりやすいです。</li>
+<li><strong>正則化の倍率（regularization multiplier; RM）</strong>:モデルに変数やその変換を入れることへのペナルティの強さです。大きいほど、単純で平らな（flatter）予測になります。</li>
+<li><strong>特徴クラス（feature class; FC）</strong>:応答曲線の形を決めます。<code>L</code> = 線形（linear）、<code>Q</code> = 二次（quadratic）、<code>H</code> = ヒンジ（hinge）、<code>P</code> = 積（product）、<code>T</code> = しきい値（threshold）。線形のみを許可すると、すべてを許可するより単純なモデルになりやすいです。</li>
 </ul>
 <p><code>ENMevaluate()</code> は、RM と FC の <strong>すべての組み合わせ</strong> について、別々にモデルを作って評価します。 次の呼び出しは、RM = 1 と 2、特徴クラスは線形のみの、計 2 個のモデルを作ります。</p>
 <div class="callout callout-style-simple callout-warning callout-titled">
@@ -1068,7 +1068,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 Refer to ?ENMevaluation for information on slots.</code></pre>
 </div>
 </div>
-<p>もっと広い範囲の設定を比べてみましょう。 特徴クラスを 3 通り(<code>L</code>、<code>LQ</code>、<code>LQH</code>)、RM を 1〜5 の 5 通りにすると、3 × 5 = 15 個のモデルができます。</p>
+<p>もっと広い範囲の設定を比べてみましょう。 特徴クラスを 3 通り（<code>L</code>、<code>LQ</code>、<code>LQH</code>）、RM を 1〜5 の 5 通りにすると、3 × 5 = 15 個のモデルができます。</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>tune.args <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">fc =</span> <span class="fu">c</span>(<span class="st">"L"</span>, <span class="st">"LQ"</span>, <span class="st">"LQH"</span>), <span class="at">rm =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>e.mx <span class="ot">&lt;-</span> <span class="fu">ENMevaluate</span>(<span class="at">occs =</span> occs, <span class="at">envs =</span> envs, <span class="at">bg =</span> bg,</span>
@@ -1102,7 +1102,7 @@ Refer to ?ENMevaluation for information on slots.</code></pre>
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>作るモデルの数が多い、データが大きい、パソコンの性能が低い、という場合は、実行に時間がかかります。 <code>parallel = TRUE</code>(と <code>numCores = 使うコア数</code>)を指定すると、並列計算で速くなることがあります。 ただし、データが小さいと、並列計算のほうが遅くなることもあります。</p>
+<p>作るモデルの数が多い、データが大きい、パソコンの性能が低い、という場合は、実行に時間がかかります。 <code>parallel = TRUE</code>（と <code>numCores = 使うコア数</code>）を指定すると、並列計算で速くなることがあります。 ただし、データが小さいと、並列計算のほうが遅くなることもあります。</p>
 </div>
 </div>
 <div class="callout callout-style-simple callout-tip callout-titled">
@@ -1115,10 +1115,10 @@ Refer to ?ENMevaluation for information on slots.</code></pre>
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>アリの研究(Kass et al.&nbsp;2022)は、特徴クラス <code>L</code>・<code>LQ</code>・<code>H</code>・<code>LQH</code>、RM = 1〜5 の組み合わせ(計 20 個)をチューニングしました。</p>
+<p>アリの研究（Kass et al.&nbsp;2022）は、特徴クラス <code>L</code>・<code>LQ</code>・<code>H</code>・<code>LQH</code>、RM = 1〜5 の組み合わせ（計 20 個）をチューニングしました。</p>
 </div>
 </div>
-<p>ニッチの重なりの指標(Schoener’s D など)も計算できます。</p>
+<p>ニッチの重なりの指標（Schoener’s D など）も計算できます。</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>overlap <span class="ot">&lt;-</span> <span class="fu">calc.niche.overlap</span>(e.mx<span class="sc">@</span>predictions, <span class="at">overlapStat =</span> <span class="st">"D"</span>)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -1168,7 +1168,7 @@ fc.LQ_rm.2  0.8774640  0.9361599   0.6704174 0.8402227         NA</code></pre>
 </section>
 <section id="explore" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="explore"><span class="header-section-number">5.2</span> 結果を調べる</h2>
-<p><code>ENMevaluate()</code> が返すのは <code>ENMevaluation</code> オブジェクトで、次のような <strong>スロット</strong>(中に入っている要素)をもちます。</p>
+<p><code>ENMevaluate()</code> が返すのは <code>ENMevaluation</code> オブジェクトで、次のような <strong>スロット</strong>（中に入っている要素）をもちます。</p>
 <ul>
 <li><code>algorithm</code>:使ったアルゴリズム</li>
 <li><code>tune.settings</code>:チューニングした設定</li>
@@ -1176,10 +1176,10 @@ fc.LQ_rm.2  0.8774640  0.9361599   0.6704174 0.8402227         NA</code></pre>
 <li><code>results</code>:評価指標の要約表</li>
 <li><code>results.partitions</code>:fold ごとの評価指標</li>
 <li><code>models</code>:モデルのリスト</li>
-<li><code>predictions</code>:モデルの予測(SpatRaster)</li>
-<li><code>occs</code>, <code>bg</code>:使った出現記録と背景点(環境の値つき)</li>
+<li><code>predictions</code>:モデルの予測（SpatRaster）</li>
+<li><code>occs</code>, <code>bg</code>:使った出現記録と背景点（環境の値つき）</li>
 <li><code>occs.grp</code>, <code>bg.grp</code>:分割のグループ番号</li>
-<li>ほか(<code>variable.importance</code>, <code>overlap</code>, <code>rmm</code> など)</li>
+<li>ほか（<code>variable.importance</code>, <code>overlap</code>, <code>rmm</code> など）</li>
 </ul>
 <p>まず、全体の構造を見ます。</p>
 <div class="cell">
@@ -1227,7 +1227,7 @@ Refer to ?ENMevaluation for information on slots.</code></pre>
   .. ..- attr(*, "class")= chr [1:2] "list" "RMM"</code></pre>
 </div>
 </div>
-<p>スロットは <code>eval.*()</code> という関数で取り出せます。</p>
+<p>スロットは <code>eval.*（）</code> という関数で取り出せます。</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 使ったアルゴリズム、チューニング設定、分割方法</span></span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">eval.algorithm</span>(e.mx)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1284,7 +1284,7 @@ Refer to ?ENMevaluation for information on slots.</code></pre>
 5 fc.LQ_rm.1    1 0.9592361 0.15959246   0.923   0.00 0.00000000
 6 fc.LQ_rm.1    2 0.6653990 0.08745172   0.264   0.00 0.00000000</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># モデルのリスト(名前は tune.args の列と同じ)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># モデルのリスト（名前は tune.args の列と同じ）</span></span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">eval.models</span>(e.mx) <span class="sc">|&gt;</span> <span class="fu">str</span>(<span class="at">max.level =</span> <span class="dv">1</span>)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>List of 15
@@ -1319,7 +1319,7 @@ Refer to ?ENMevaluation for information on slots.</code></pre>
  $ fc.LQH_rm.5:List of 23
   ..- attr(*, "class")= chr [1:3] "maxnet" "lognet" "glmnet"</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># maxnet モデルの betas は、各変数の係数(Rの式の形で書かれている)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># maxnet モデルの betas は、各変数の係数（Rの式の形で書かれている）</span></span>
 <span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>m1.mx <span class="ot">&lt;-</span> <span class="fu">eval.models</span>(e.mx)[[<span class="st">"fc.LQH_rm.1"</span>]]</span>
 <span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>m1.mx<span class="sc">$</span>betas</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -1412,7 +1412,7 @@ hinge(bio15):6.85179758071899:50.0982208933149
 10 I(bio18^2) -0.000000474
 # ℹ 25 more rows</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co"># モデルの予測(SpatRaster)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co"># モデルの予測（SpatRaster）</span></span>
 <span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="fu">eval.predictions</span>(e.mx)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>class       : SpatRaster
@@ -1425,7 +1425,7 @@ names       : fc.L_rm.1, fc.LQ_rm.1, fc.LQH_rm.1, fc.L_rm.2, fc.LQ_rm.2, fc.LQH_
 min values  :         0,          0,           0,  0.000001,          0,           0, ...
 max values  :         1,          1,           1,         1,          1,           1, ...</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 元の出現記録(環境変数の値つき)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 元の出現記録（環境変数の値つき）</span></span>
 <span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a><span class="fu">eval.occs</span>(e.mx) <span class="sc">|&gt;</span> <span class="fu">head</span>()</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  longitude latitude     bio2     bio3     bio5     bio8     bio9 bio13 bio14
@@ -1443,7 +1443,7 @@ max values  :         1,          1,           1,         1,          1,        
 5 70.91077   357    60
 6 44.78418   427   852</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 背景点(環境変数の値つき)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 背景点（環境変数の値つき）</span></span>
 <span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="fu">eval.bg</span>(e.mx) <span class="sc">|&gt;</span> <span class="fu">head</span>()</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    longitude   latitude      bio2     bio3   bio5     bio8     bio9 bio13
@@ -1496,7 +1496,7 @@ max values  :         1,          1,           1,         1,          1,        
 <tbody>
 <tr class="odd">
 <td><code>tune.args</code></td>
-<td>設定の名前(例:<code>fc.LQH_rm.1</code>)</td>
+<td>設定の名前（例:<code>fc.LQH_rm.1</code>）</td>
 </tr>
 <tr class="even">
 <td><code>auc.val.avg</code></td>
@@ -1504,11 +1504,11 @@ max values  :         1,          1,           1,         1,          1,        
 </tr>
 <tr class="odd">
 <td><code>or.10p.avg</code></td>
-<td>10 パーセンタイル欠損率(omission rate)の平均(小さいほどよい)</td>
+<td>10 パーセンタイル欠損率（omission rate）の平均（小さいほどよい）</td>
 </tr>
 <tr class="even">
 <td><code>cbi.val.avg</code></td>
-<td>検証データでの Continuous Boyce Index の平均(大きいほどよい)</td>
+<td>検証データでの Continuous Boyce Index の平均（大きいほどよい）</td>
 </tr>
 <tr class="odd">
 <td><code>AICc</code>, <code>delta.AICc</code></td>
@@ -1516,7 +1516,7 @@ max values  :         1,          1,           1,         1,          1,        
 </tr>
 <tr class="even">
 <td><code>ncoef</code></td>
-<td>0 でない係数の数(モデルの複雑さ)</td>
+<td>0 でない係数の数（モデルの複雑さ）</td>
 </tr>
 </tbody>
 </table>
@@ -1562,15 +1562,15 @@ max values  :         1,          1,           1,         1,          1,        
 <h1 data-number="7"><span class="header-section-number">7</span> モデル選択</h1>
 <p>得られた結果から、最適なモデルを選びます。 このチュートリアルでは 2 つの方法を示します。</p>
 <ol type="1">
-<li><strong>AICc</strong> で選ぶ(交差検証の結果を使わない方法; Warren &amp; Seifert 2011)。</li>
-<li><strong>逐次的な基準</strong> で選ぶ(交差検証の結果を使う方法):10 パーセンタイル欠損率(<code>or.10p.avg</code>)が最小のモデルを選び、同点なら検証 CBI(Continuous Boyce Index; Hirzel et al.&nbsp;2006)が最大のモデルを選ぶ。</li>
+<li><strong>AICc</strong> で選ぶ（交差検証の結果を使わない方法; Warren &amp; Seifert 2011）。</li>
+<li><strong>逐次的な基準</strong> で選ぶ（交差検証の結果を使う方法）:10 パーセンタイル欠損率（<code>or.10p.avg</code>）が最小のモデルを選び、同点なら検証 CBI（Continuous Boyce Index; Hirzel et al.&nbsp;2006）が最大のモデルを選ぶ。</li>
 </ol>
-<p>AUC は、出現のみのモデルでは絶対的な性能指標としては不適切ですが(Lobo et al.&nbsp;2008)、 同じデータで作った複数のモデルを <strong>相対的に</strong> 比べる分には使えます(Radosavljevic &amp; Anderson 2014)。</p>
+<p>AUC は、出現のみのモデルでは絶対的な性能指標としては不適切ですが（Lobo et al.&nbsp;2008）、 同じデータで作った複数のモデルを <strong>相対的に</strong> 比べる分には使えます（Radosavljevic &amp; Anderson 2014）。</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 評価結果の全体</span></span>
 <span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">eval.results</span>(e.mx)</span>
 <span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a><span class="co"># AICc が最小(delta.AICc が 0)のモデル。</span></span>
+<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a><span class="co"># AICc が最小（delta.AICc が 0）のモデル。</span></span>
 <span id="cb76-5"><a href="#cb76-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 実際には delta.AICc が 2 未満のモデルは、同等と考えることが多い。</span></span>
 <span id="cb76-6"><a href="#cb76-6" aria-hidden="true" tabindex="-1"></a>opt.aicc <span class="ot">&lt;-</span> res <span class="sc">|&gt;</span> <span class="fu">filter</span>(delta.AICc <span class="sc">==</span> <span class="dv">0</span>)</span>
 <span id="cb76-7"><a href="#cb76-7" aria-hidden="true" tabindex="-1"></a>opt.aicc</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1613,9 +1613,9 @@ max values  :         1,          1,           1,         1,          1,        
 <ol type="1">
 <li>0 でない係数がないモデルを除く。</li>
 <li>訓練データでの CBI が欠損または 0 以下のモデルを除く。</li>
-<li>10 パーセンタイル欠損率(<code>or.10p.avg</code>)が最小のモデルを選ぶ。</li>
-<li>同点なら、検証 AUC(<code>auc.val.avg</code>)が最大のモデル。</li>
-<li>それでも同点なら、0 でない係数の数(<code>ncoef</code>)が最小のモデル。</li>
+<li>10 パーセンタイル欠損率（<code>or.10p.avg</code>）が最小のモデルを選ぶ。</li>
+<li>同点なら、検証 AUC（<code>auc.val.avg</code>）が最大のモデル。</li>
+<li>それでも同点なら、0 でない係数の数（<code>ncoef</code>）が最小のモデル。</li>
 </ol>
 <p>上の <code>opt.seq</code> の方法は、これに近い方法です。</p>
 </div>
@@ -1635,10 +1635,10 @@ max values  :         1,          1,           1,         1,          1,        
 </div>
 <section id="respcurve" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="respcurve"><span class="header-section-number">7.1</span> 応答曲線</h2>
-<p>次に、<strong>周辺応答曲線</strong>(marginal response curve)を描きます。 他の変数を平均値に固定したまま、ひとつの変数だけを動かしたときの予測値の変化を示す曲線です。 縦軸は <strong>cloglog 変換</strong>(0〜1 の範囲で、出現確率の近似とみなせる値。Phillips et al.&nbsp;2017)です。</p>
+<p>次に、<strong>周辺応答曲線</strong>（marginal response curve）を描きます。 他の変数を平均値に固定したまま、ひとつの変数だけを動かしたときの予測値の変化を示す曲線です。 縦軸は <strong>cloglog 変換</strong>（0〜1 の範囲で、出現確率の近似とみなせる値。Phillips et al.&nbsp;2017）です。</p>
 <p><code>evalplot.respCurves()</code> は、他の変数を、渡した <code>data</code> の平均値に固定します。 ここでは、<code>maxnet</code> の <code>plot()</code> と同じになるように、出現記録だけのデータを渡します。</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 出現記録の位置の環境変数の値(変数名の列だけ)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 出現記録の位置の環境変数の値（変数名の列だけ）</span></span>
 <span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a>resp.data <span class="ot">&lt;-</span> <span class="fu">eval.occs</span>(e.mx)[, <span class="fu">names</span>(envs)]</span>
 <span id="cb82-3"><a href="#cb82-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb82-4"><a href="#cb82-4" aria-hidden="true" tabindex="-1"></a><span class="co"># すべての変数の応答曲線</span></span>
@@ -1650,7 +1650,7 @@ max values  :         1,          1,           1,         1,          1,        
 </figure>
 </div>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1 つの変数(bio5)だけの応答曲線</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1 つの変数（bio5）だけの応答曲線</span></span>
 <span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a><span class="fu">evalplot.respCurve</span>(mod.seq, resp.data, <span class="at">var =</span> <span class="st">"bio5"</span>)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
@@ -1670,20 +1670,20 @@ max values  :         1,          1,           1,         1,          1,        
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>元の vignette は、このオブジェクトに <code>data</code> という名前をつけていますが、 <code>data</code> は R にもともとある関数(<code>utils::data</code>)の名前なので、混乱のもとになります。 ここでは <code>resp.data</code> という名前にしています。 (変数名に、既存の関数の名前を使うことは、動くけれど避けたほうがよい習慣です。)</p>
+<p>元の vignette は、このオブジェクトに <code>data</code> という名前をつけていますが、 <code>data</code> は R にもともとある関数（<code>utils::data</code>）の名前なので、混乱のもとになります。 ここでは <code>resp.data</code> という名前にしています。 （変数名に、既存の関数の名前を使うことは、動くけれど避けたほうがよい習慣です。）</p>
 </div>
 </div>
 </section>
 <section id="predmap" class="level2" data-number="7.2">
 <h2 data-number="7.2" class="anchored" data-anchor-id="predmap"><span class="header-section-number">7.2</span> 予測地図</h2>
-<p>最適モデルの予測ラスターを描きます。 <code>maxnet</code> と <code>maxent.jar</code> の予測は、既定で <strong>cloglog</strong> 形式(0〜1)です。 <code>ENMevaluate()</code> の <code>pred.type</code> 引数で変更できます。</p>
+<p>最適モデルの予測ラスターを描きます。 <code>maxnet</code> と <code>maxent.jar</code> の予測は、既定で <strong>cloglog</strong> 形式（0〜1）です。 <code>ENMevaluate()</code> の <code>pred.type</code> 引数で変更できます。</p>
 <p>予測は、入力した予測変数ラスターの <strong>全範囲</strong> で計算されるので、 モデルを作った背景範囲の外も含みます。 背景範囲から遠く離れた場所の予測は、慎重に解釈してください。</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 最適モデルの予測を取り出す</span></span>
 <span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a>pred.seq <span class="ot">&lt;-</span> <span class="fu">eval.predictions</span>(e.mx)[[<span class="fu">as.character</span>(opt.seq<span class="sc">$</span>tune.args)]]</span>
 <span id="cb84-3"><a href="#cb84-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pred.seq, <span class="at">col =</span> <span class="fu">terrain.colors</span>(<span class="dv">100</span>))</span>
 <span id="cb84-4"><a href="#cb84-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-5"><a href="#cb84-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 背景点(+)と出現記録(○)を、分割のグループで色分けして重ねる</span></span>
+<span id="cb84-5"><a href="#cb84-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 背景点（+）と出現記録（○）を、分割のグループで色分けして重ねる</span></span>
 <span id="cb84-6"><a href="#cb84-6" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="fu">eval.bg</span>(e.mx), <span class="at">pch =</span> <span class="dv">3</span>, <span class="at">col =</span> <span class="fu">eval.bg.grp</span>(e.mx), <span class="at">cex =</span> <span class="fl">0.5</span>)</span>
 <span id="cb84-7"><a href="#cb84-7" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="fu">eval.occs</span>(e.mx), <span class="at">pch =</span> <span class="dv">21</span>, <span class="at">bg =</span> <span class="fu">eval.occs.grp</span>(e.mx))</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
@@ -1697,7 +1697,7 @@ max values  :         1,          1,           1,         1,          1,        
 </section>
 <section id="complexity" class="level2" data-number="7.3">
 <h2 data-number="7.3" class="anchored" data-anchor-id="complexity"><span class="header-section-number">7.3</span> モデルの複雑さと予測の関係</h2>
-<p>モデルが複雑になるほど予測がどう変わるのかを見ましょう。 最も単純なモデル(線形のみ、RM が最大の 5; <code>fc.L_rm.5</code>)と、 最も複雑なモデル(線形・二次・ヒンジ、RM が最小の 1; <code>fc.LQH_rm.1</code>)を比べます。</p>
+<p>モデルが複雑になるほど予測がどう変わるのかを見ましょう。 最も単純なモデル（線形のみ、RM が最大の 5; <code>fc.L_rm.5</code>）と、 最も複雑なモデル（線形・二次・ヒンジ、RM が最小の 1; <code>fc.LQH_rm.1</code>）を比べます。</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>mod.simple <span class="ot">&lt;-</span> <span class="fu">eval.models</span>(e.mx)[[<span class="st">"fc.L_rm.5"</span>]]</span>
 <span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a>mod.complex <span class="ot">&lt;-</span> <span class="fu">eval.models</span>(e.mx)[[<span class="st">"fc.LQH_rm.1"</span>]]</span>
@@ -1838,12 +1838,12 @@ hinge(bio15):6.85179758071899:50.0982208933149
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb97"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 図の設定を元に戻す</span></span>
 <span id="cb97-2"><a href="#cb97-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>単純なモデルは予測がなめらかで、複雑なモデルは斑状(patchy)になる傾向があります。 単純なモデルと複雑なモデルのどちらがよいかは、簡単には決まりません(Merow et al.&nbsp;2014)。</p>
+<p>単純なモデルは予測がなめらかで、複雑なモデルは斑状（patchy）になる傾向があります。 単純なモデルと複雑なモデルのどちらがよいかは、簡単には決まりません（Merow et al.&nbsp;2014）。</p>
 </section>
 </section>
 <section id="null" class="level1" data-number="8">
 <h1 data-number="8"><span class="header-section-number">8</span> 発展:ヌルモデル</h1>
-<p>ここまでは、欠損率や AUC などの評価指標を計算しました。 しかし、これらの値が <strong>ランダムなデータで作ったモデル(ヌルモデル)と比べて十分によいのか</strong> はまだ分かりません。 ヌルモデルと比べると、指標の有意性と効果量が分かります(Raes &amp; ter Steege 2007; Bohl et al.&nbsp;2019; Kass et al.&nbsp;2020)。</p>
+<p>ここまでは、欠損率や AUC などの評価指標を計算しました。 しかし、これらの値が <strong>ランダムなデータで作ったモデル（ヌルモデル）と比べて十分によいのか</strong> はまだ分かりません。 ヌルモデルと比べると、指標の有意性と効果量が分かります（Raes &amp; ter Steege 2007; Bohl et al.&nbsp;2019; Kass et al.&nbsp;2020）。</p>
 <p><code>ENMnulls()</code> は、ランダムな出現記録でヌルモデルを繰り返し作り、実際のモデルの指標と比べます。</p>
 <div class="callout callout-style-simple callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1855,7 +1855,7 @@ hinge(bio15):6.85179758071899:50.0982208933149
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>ヌルモデルは、1 回の反復が 1 つの <code>ENMevaluate()</code> に相当するため、<strong>時間がかかります</strong>。 元の vignette は反復 100 回(<code>no.iter = 100</code>)ですが、ここでは動作確認用に <strong>10 回</strong> にしています。 正式な解析では、100 回以上を推奨します。</p>
+<p>ヌルモデルは、1 回の反復が 1 つの <code>ENMevaluate()</code> に相当するため、<strong>時間がかかります</strong>。 元の vignette は反復 100 回（<code>no.iter = 100</code>）ですが、ここでは動作確認用に <strong>10 回</strong> にしています。 正式な解析では、100 回以上を推奨します。</p>
 <p>また、時間のかかる計算の結果は <code>saveRDS()</code> で保存しておき、2 回目以降は <code>readRDS()</code> で読み込むのが定石です。 出現記録のダウンロードと同じ考え方です。</p>
 </div>
 </div>
@@ -1925,7 +1925,7 @@ hinge(bio15):6.85179758071899:50.0982208933149
 6 0.59113720  0.4367575</code></pre>
 </div>
 </div>
-<p>結果をヒストグラムで描きます。実際のモデルの値(赤い実線)が、ヌルモデルの値の 99 パーセンタイル(紫の破線)より高ければ、 そのモデルの成績は、ランダムより有意によい、と言えます。</p>
+<p>結果をヒストグラムで描きます。実際のモデルの値（赤い実線）が、ヌルモデルの値の 99 パーセンタイル（紫の破線）より高ければ、 そのモデルの成績は、ランダムより有意によい、と言えます。</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb105"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="fu">evalplot.nulls</span>(mod.null, <span class="at">stats =</span> <span class="fu">c</span>(<span class="st">"or.10p"</span>, <span class="st">"cbi.val"</span>), <span class="at">plot.type =</span> <span class="st">"histogram"</span>)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
@@ -1935,7 +1935,7 @@ hinge(bio15):6.85179758071899:50.0982208933149
 </figure>
 </div>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb106"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="co"># バイオリン図で描くこともできる(赤い点が実際のモデル)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb106"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="co"># バイオリン図で描くこともできる（赤い点が実際のモデル）</span></span>
 <span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a><span class="fu">evalplot.nulls</span>(mod.null, <span class="at">stats =</span> <span class="fu">c</span>(<span class="st">"or.10p"</span>, <span class="st">"cbi.val"</span>), <span class="at">plot.type =</span> <span class="st">"violin"</span>)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
@@ -1950,10 +1950,10 @@ hinge(bio15):6.85179758071899:50.0982208933149
 <h1 data-number="9"><span class="header-section-number">9</span> 省略した内容</h1>
 <p>元の vignette にあって、このチュートリアルでは省略した内容は次のとおりです。</p>
 <ul>
-<li><strong><code>maxent.jar</code>(Java 版 Maxent)</strong>:Java の設定が必要で、うまく動かないことも多いため省略しました。<code>algorithm = "maxent.jar"</code> で使えます。</li>
-<li><strong>独自の評価指標</strong>(<code>user.eval</code>、<code>kuenm</code> による pROC)や、独自のアルゴリズム(<code>ENMdetails</code>)。</li>
-<li><strong>完全に独立したテストデータ</strong>(<code>partitions = "testing"</code>)、分割なし(<code>"none"</code>)、環境ラスターなしの入力(SWD)。</li>
-<li><strong>メタデータの出力</strong>(<code>rangeModelMetadata</code>):モデルの報告には、標準的な枠組みである <strong>ODMAP</strong>(Zurell et al.&nbsp;2020)も利用できます。</li>
+<li><strong><code>maxent.jar</code>（Java 版 Maxent）</strong>:Java の設定が必要で、うまく動かないことも多いため省略しました。<code>algorithm = "maxent.jar"</code> で使えます。</li>
+<li><strong>独自の評価指標</strong>（<code>user.eval</code>、<code>kuenm</code> による pROC）や、独自のアルゴリズム（<code>ENMdetails</code>）。</li>
+<li><strong>完全に独立したテストデータ</strong>（<code>partitions = "testing"</code>）、分割なし（<code>"none"</code>）、環境ラスターなしの入力（SWD）。</li>
+<li><strong>メタデータの出力</strong>（<code>rangeModelMetadata</code>）:モデルの報告には、標準的な枠組みである <strong>ODMAP</strong>（Zurell et al.&nbsp;2020）も利用できます。</li>
 </ul>
 <div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1975,7 +1975,7 @@ hinge(bio15):6.85179758071899:50.0982208933149
 <h4 data-number="10.0.0.1" class="anchored" data-anchor-id="ウェブの情報源"><span class="header-section-number">10.0.0.1</span> ウェブの情報源</h4>
 <ul>
 <li><a href="https://rspatial.org/raster/sdm/">Hijmans, R. &amp; Elith, J. Species distribution modeling</a></li>
-<li><a href="https://jamiemkass.github.io/ENMeval/articles/ENMeval-2.0-vignette.html">ENMeval 2.0 vignette(元の英語版)</a></li>
+<li><a href="https://jamiemkass.github.io/ENMeval/articles/ENMeval-2.0-vignette.html">ENMeval 2.0 vignette（元の英語版）</a></li>
 <li><a href="https://odmap.wsl.ch/">ODMAP:種分布モデルの報告プロトコル</a></li>
 </ul>
 </section>

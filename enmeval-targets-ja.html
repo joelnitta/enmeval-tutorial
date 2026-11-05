@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ENMeval 2.0 チュートリアル(targets 版) – ENMeval 2.0 チュートリアル</title>
+<title>ENMeval 2.0 チュートリアル（targets 版） – ENMeval 2.0 チュートリアル</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -175,7 +175,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#install" id="toc-install" class="nav-link" data-scroll-target="#install"><span class="header-section-number">2.1</span> パッケージ</a></li>
   <li><a href="#folders" id="toc-folders" class="nav-link" data-scroll-target="#folders"><span class="header-section-number">2.2</span> プロジェクトのフォルダ</a></li>
   </ul></li>
-  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions"><span class="header-section-number">3</span> 解析を関数にする(<code>R/functions.R</code>)</a>
+  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions"><span class="header-section-number">3</span> 解析を関数にする（<code>R/functions.R</code>）</a>
   <ul class="collapse">
   <li><a href="#fn-data" id="toc-fn-data" class="nav-link" data-scroll-target="#fn-data"><span class="header-section-number">3.1</span> データの取得</a></li>
   <li><a href="#fn-envs" id="toc-fn-envs" class="nav-link" data-scroll-target="#fn-envs"><span class="header-section-number">3.2</span> 環境データの準備</a></li>
@@ -183,7 +183,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#fn-bg" id="toc-fn-bg" class="nav-link" data-scroll-target="#fn-bg"><span class="header-section-number">3.4</span> 背景範囲と背景点</a></li>
   <li><a href="#fn-model" id="toc-fn-model" class="nav-link" data-scroll-target="#fn-model"><span class="header-section-number">3.5</span> モデルの作成と選択</a></li>
   </ul></li>
-  <li><a href="#pipeline" id="toc-pipeline" class="nav-link" data-scroll-target="#pipeline"><span class="header-section-number">4</span> パイプラインを書く(<code>_targets.R</code>)</a></li>
+  <li><a href="#pipeline" id="toc-pipeline" class="nav-link" data-scroll-target="#pipeline"><span class="header-section-number">4</span> パイプラインを書く（<code>_targets.R</code>）</a></li>
   <li><a href="#inspect" id="toc-inspect" class="nav-link" data-scroll-target="#inspect"><span class="header-section-number">5</span> パイプラインを確かめる</a></li>
   <li><a href="#make" id="toc-make" class="nav-link" data-scroll-target="#make"><span class="header-section-number">6</span> 実行する</a>
   <ul class="collapse">
@@ -201,7 +201,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">ENMeval 2.0 チュートリアル(targets 版)</h1>
+<h1 class="title">ENMeval 2.0 チュートリアル（targets 版）</h1>
 <p class="subtitle lead">同じ解析を {targets} のパイプラインにして、再現しやすく、やり直しやすくする</p>
 </div>
 
@@ -241,7 +241,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>スクリプト版では、コードを上から順に実行しました。 これは、考えながら解析を進めるときには便利ですが、解析が大きくなると、次のような困りごとが出てきます。</p>
 <ul>
 <li>どのコードを、どの順番で実行すればよいか分からなくなる。</li>
-<li>設定を 1 つ変えただけなのに、全部をやり直す(<strong>時間のかかる</strong> <code>ENMevaluate()</code> も含めて)。</li>
+<li>設定を 1 つ変えただけなのに、全部をやり直す（<strong>時間のかかる</strong> <code>ENMevaluate()</code> も含めて）。</li>
 <li>前回の結果が、今のコードで作られたものなのか分からなくなる。</li>
 </ul>
 <p><code>targets</code> では、解析を <strong>関数</strong> に分け、「どの結果が、どの結果から作られるか」を <strong>パイプライン</strong> として書いておきます。 <code>tar_make()</code> を実行すると、<code>targets</code> が <strong>変更があった部分と、それに依存する部分だけ</strong> を実行し、 結果を <code>_targets/</code> フォルダに保存します。 同じ解析を複数の種に当てはめるときにも、そのまま使えます。</p>
@@ -250,20 +250,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1 data-number="2"><span class="header-section-number">2</span> 準備</h1>
 <section id="install" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="install"><span class="header-section-number">2.1</span> パッケージ</h2>
-<p>スクリプト版で入れたパッケージに加えて、<code>targets</code> と、地図(ラスター)データを扱うための拡張 <a href="https://github.com/ropensci/geotargets"><code>geotargets</code></a> を入れます。</p>
+<p>スクリプト版で入れたパッケージに加えて、<code>targets</code> と、地図（ラスター）データを扱うための拡張 <a href="https://github.com/ropensci/geotargets"><code>geotargets</code></a> を入れます。</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"targets"</span>, <span class="st">"geotargets"</span>))</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="folders" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="folders"><span class="header-section-number">2.2</span> プロジェクトのフォルダ</h2>
-<p><code>targets</code> は、<strong>1 つの解析につき 1 つのフォルダ(プロジェクト)</strong> を使います。 <a href="./enmeval-tutorial-ja.html#rstudio-project">スクリプト版の RStudio プロジェクトの作り方</a>と同じ手順で、 新しいプロジェクト(たとえば <code>my-enm</code>)を作り、次のようなフォルダ構成にします。</p>
+<p><code>targets</code> は、<strong>1 つの解析につき 1 つのフォルダ（プロジェクト）</strong> を使います。 <a href="./enmeval-tutorial-ja.html#rstudio-project">スクリプト版の RStudio プロジェクトの作り方</a>と同じ手順で、 新しいプロジェクト（たとえば <code>my-enm</code>）を作り、次のようなフォルダ構成にします。</p>
 <pre><code>my-enm/
-├── _targets.R      # パイプライン(「何を、どの順で作るか」)
+├── _targets.R      # パイプライン（「何を、どの順で作るか」）
 ├── R/
 │   └── functions.R # 解析の各ステップを関数にしたもの
-├── data/           # ダウンロードしたデータ(スクリプト版の data/ と同じ)
-└── _targets/       # targets が自動で作る。結果の保存場所(手で触らない)</code></pre>
+├── data/           # ダウンロードしたデータ（スクリプト版の data/ と同じ）
+└── _targets/       # targets が自動で作る。結果の保存場所（手で触らない）</code></pre>
 <p>スクリプト版を実行したフォルダの <code>data/</code> を、そのままコピーして置くと、GBIF と WorldClim の再ダウンロードを省けます。</p>
 <div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -281,20 +281,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </section>
 <section id="functions" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> 解析を関数にする(<code>R/functions.R</code>)</h1>
-<p>スクリプト版の各ステップを、<strong>関数</strong> にします。 <code>targets</code> の基本的な考え方は、「<strong>関数が 1 つのステップを担い、その結果が 1 つのターゲット(target)になる</strong>」です。</p>
+<h1 data-number="3"><span class="header-section-number">3</span> 解析を関数にする（<code>R/functions.R</code>）</h1>
+<p>スクリプト版の各ステップを、<strong>関数</strong> にします。 <code>targets</code> の基本的な考え方は、「<strong>関数が 1 つのステップを担い、その結果が 1 つのターゲット（target）になる</strong>」です。</p>
 <p>関数にするときの変更は、おもに次の 3 点です。</p>
 <ol type="1">
-<li>必要なものは <strong>引数</strong> で受け取り、結果は <strong>返り値</strong> で返す(グローバルな変数に頼らない)。</li>
-<li><code>ENMeval::ENMevaluate()</code> のように、<code>パッケージ名::</code> をつける(どのパッケージの関数か分かる)。</li>
-<li>図を描くコード(確認用)は、関数に含めない。</li>
+<li>必要なものは <strong>引数</strong> で受け取り、結果は <strong>返り値</strong> で返す（グローバルな変数に頼らない）。</li>
+<li><code>ENMeval::ENMevaluate()</code> のように、<code>パッケージ名::</code> をつける（どのパッケージの関数か分かる）。</li>
+<li>図を描くコード（確認用）は、関数に含めない。</li>
 </ol>
 <p>以降のチャンクは、すべて <code>R/functions.R</code> に <strong>この順番で</strong> 続けて書きます。</p>
 <section id="fn-data" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="fn-data"><span class="header-section-number">3.1</span> データの取得</h2>
 <p>スクリプト版の「ファイルがなければダウンロード」をそのまま使います。 返り値を <strong>ファイルのパス</strong> にするのは、あとで説明する「ファイルのターゲット」にするためです。</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 出現記録を GBIF からダウンロードして保存する(すでにあれば何もしない)。</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 出現記録を GBIF からダウンロードして保存する（すでにあれば何もしない）。</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 返り値は、保存したファイルのパス。</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>download_occs <span class="ot">&lt;-</span> <span class="cf">function</span>(occs_file, <span class="at">species =</span> <span class="st">"Bradypus variegatus"</span>, <span class="at">limit =</span> <span class="dv">300</span>) {</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(occs_file)) {</span>
@@ -308,7 +308,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  occs_file</span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># WorldClim をダウンロードする(すでにあれば何もしない)。</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># WorldClim をダウンロードする（すでにあれば何もしない）。</span></span>
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 返り値は、tif ファイルが入っているフォルダのパス。</span></span>
 <span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>download_climate <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">data_dir =</span> <span class="st">"data"</span>) {</span>
 <span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  geodata<span class="sc">::</span><span class="fu">worldclim_global</span>(<span class="at">var =</span> <span class="st">"bio"</span>, <span class="at">res =</span> <span class="dv">5</span>, <span class="at">path =</span> data_dir)</span>
@@ -322,8 +322,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># フォルダの tif ファイルを読み込み、bio1〜bio19 と名前をつけて、範囲を切り出す。</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>load_envs <span class="ot">&lt;-</span> <span class="cf">function</span>(climate_dir) {</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  tifs <span class="ot">&lt;-</span> <span class="fu">list.files</span>(climate_dir, <span class="at">pattern =</span> <span class="st">"</span><span class="sc">\\</span><span class="st">.tif$"</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ファイル名の番号(bio_1, bio_2, ...)の順に並べる</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># (名前順だと bio_1, bio_10, bio_11, ... となってしまうので)</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ファイル名の番号（bio_1, bio_2, ...）の順に並べる</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># （名前順だと bio_1, bio_10, bio_11, ... となってしまうので）</span></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  bio_num <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(<span class="fu">sub</span>(<span class="st">".*_([0-9]+)</span><span class="sc">\\</span><span class="st">.tif$"</span>, <span class="st">"</span><span class="sc">\\</span><span class="st">1"</span>, tifs))</span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  envs <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">rast</span>(tifs[<span class="fu">order</span>(bio_num)])</span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(envs) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"bio"</span>, <span class="fu">sort</span>(bio_num))</span>
@@ -349,7 +349,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  occs <span class="ot">&lt;-</span> occs[<span class="sc">!</span><span class="fu">duplicated</span>(cells[, <span class="dv">1</span>]), ]</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 緯度が -20 より北、かつ経度が -45 より西の記録だけを残す</span></span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  occs <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(occs, latitude <span class="sc">&gt;</span> <span class="sc">-</span><span class="dv">20</span>, longitude <span class="sc">&lt;</span> <span class="sc">-</span><span class="dv">45</span>)</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 環境変数が NA の記録(海上など)を除く</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 環境変数が NA の記録（海上など）を除く</span></span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  occs_z <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">extract</span>(envs, occs, <span class="at">ID =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  na_rows <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="fu">rowSums</span>(<span class="fu">is.na</span>(occs_z)) <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">length</span>(na_rows) <span class="sc">&gt;</span> <span class="dv">0</span>) occs <span class="ot">&lt;-</span> occs[<span class="sc">-</span>na_rows, ]</span>
@@ -360,7 +360,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="fn-bg" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="fn-bg"><span class="header-section-number">3.4</span> 背景範囲と背景点</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 出現記録の周囲 dist メートルのバッファー(背景範囲)を作る。</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 出現記録の周囲 dist メートルのバッファー（背景範囲）を作る。</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>make_bg_buffer <span class="ot">&lt;-</span> <span class="cf">function</span>(occs, envs, <span class="at">dist =</span> <span class="dv">500000</span>) {</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  eckertIV <span class="ot">&lt;-</span> <span class="st">"+proj=eck4 +lon_0=0 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs"</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  occs <span class="sc">|&gt;</span></span>
@@ -392,7 +392,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="fn-model" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="fn-model"><span class="header-section-number">3.5</span> モデルの作成と選択</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># maxnet のモデルを、特徴クラス(fc)と正則化の倍率(rm)のすべての組み合わせで作って評価する。</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># maxnet のモデルを、特徴クラス（fc）と正則化の倍率（rm）のすべての組み合わせで作って評価する。</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 設定を、ここでなく引数にしておくと、_targets.R で設定を変えやすい。</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>run_enmeval <span class="ot">&lt;-</span> <span class="cf">function</span>(occs, envs, bg, fc, rm) {</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  ENMeval<span class="sc">::</span><span class="fu">ENMevaluate</span>(<span class="at">occs =</span> occs, <span class="at">envs =</span> envs, <span class="at">bg =</span> bg,</span>
@@ -400,7 +400,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>                       <span class="at">tune.args =</span> <span class="fu">list</span>(<span class="at">fc =</span> fc, <span class="at">rm =</span> rm), <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 逐次的な基準で最適モデルを選ぶ(欠損率が最小 → 同点なら検証 CBI が最大)。</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 逐次的な基準で最適モデルを選ぶ（欠損率が最小 → 同点なら検証 CBI が最大）。</span></span>
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>select_best <span class="ot">&lt;-</span> <span class="cf">function</span>(res) {</span>
 <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  res <span class="sc">|&gt;</span></span>
 <span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(or<span class="fl">.10</span>p.avg)) <span class="sc">|&gt;</span></span>
@@ -424,22 +424,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>応答曲線や予測地図などの <strong>図</strong> は、パイプラインには入れません。 パイプラインは「結果(データ)」を作るもので、図は、保存された結果を読み込んで、必要なときに描きます (<a href="#read">結果を読み込む</a>で行います)。</p>
+<p>応答曲線や予測地図などの <strong>図</strong> は、パイプラインには入れません。 パイプラインは「結果（データ）」を作るもので、図は、保存された結果を読み込んで、必要なときに描きます （<a href="#read">結果を読み込む</a>で行います）。</p>
 </div>
 </div>
 </section>
 </section>
 <section id="pipeline" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> パイプラインを書く(<code>_targets.R</code>)</h1>
+<h1 data-number="4"><span class="header-section-number">4</span> パイプラインを書く（<code>_targets.R</code>）</h1>
 <p>次に、プロジェクトの一番上のフォルダに <code>_targets.R</code> を作り、<strong>ターゲットの一覧</strong> を書きます。 まず、冒頭の設定です。</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(targets)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(geotargets)  <span class="co"># ラスター(SpatRaster)用のターゲット tar_terra_rast() を使う</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(geotargets)  <span class="co"># ラスター（SpatRaster）用のターゲット tar_terra_rast() を使う</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ターゲットを作る関数が使うパッケージと、乱数シード</span></span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tar_option_set</span>(<span class="at">packages =</span> <span class="fu">c</span>(<span class="st">"ENMeval"</span>, <span class="st">"terra"</span>), <span class="at">seed =</span> <span class="dv">48</span>)</span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># R/ フォルダの中の .R ファイル(= functions.R)を読み込む</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># R/ フォルダの中の .R ファイル（= functions.R）を読み込む</span></span>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="fu">tar_source</span>()</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-style-simple callout-warning callout-titled">
@@ -452,13 +452,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><code>targets</code> は、ターゲットの結果を、通常は <code>saveRDS()</code> と同じ方法で保存します。 ところが、<code>terra</code> の <code>SpatRaster</code> は、R の外にあるデータへの「参照(ポインタ)」を持っているため、 <code>saveRDS()</code> で保存して読み込み直すと、<strong>壊れます</strong> (<code>Error: external pointer is not valid</code>)。</p>
+<p><code>targets</code> は、ターゲットの結果を、通常は <code>saveRDS()</code> と同じ方法で保存します。 ところが、<code>terra</code> の <code>SpatRaster</code> は、R の外にあるデータへの「参照（ポインタ）」を持っているため、 <code>saveRDS()</code> で保存して読み込み直すと、<strong>壊れます</strong> （<code>Error: external pointer is not valid</code>）。</p>
 <p>そこで、ラスター用のターゲットには、拡張パッケージ <a href="https://github.com/ropensci/geotargets"><strong>geotargets</strong></a> の <code>tar_terra_rast()</code> を使います。 <code>tar_target()</code> の代わりに使うだけで、<code>SpatRaster</code> を GeoTIFF ファイルとして、正しく保存・読み込みしてくれます。</p>
-<p>ただし、<code>ENMevaluation</code> オブジェクトは、中に <code>SpatRaster</code>(予測)を入れた <strong>リスト状のオブジェクト</strong> なので、<code>geotargets</code> では扱えません。 こちらは、保存と読み込みの方法を自分で指定する <code>targets::tar_format()</code> で対応します。 <code>terra::wrap()</code> で保存できる形に変換して保存し、読み込むときに <code>terra::unwrap()</code> で元に戻します。</p>
+<p>ただし、<code>ENMevaluation</code> オブジェクトは、中に <code>SpatRaster</code>（予測）を入れた <strong>リスト状のオブジェクト</strong> なので、<code>geotargets</code> では扱えません。 こちらは、保存と読み込みの方法を自分で指定する <code>targets::tar_format()</code> で対応します。 <code>terra::wrap()</code> で保存できる形に変換して保存し、読み込むときに <code>terra::unwrap()</code> で元に戻します。</p>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ENMevaluation オブジェクト用の保存形式(予測の部分だけ変換する)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ENMevaluation オブジェクト用の保存形式（予測の部分だけ変換する）</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>format_enm <span class="ot">&lt;-</span> <span class="fu">tar_format</span>(</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">read =</span> <span class="cf">function</span>(path) {</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    object <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(path)</span>
@@ -474,12 +474,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>続いて、ターゲットの一覧です。<code>tar_target(名前, 作り方)</code> を並べた <strong>リスト</strong> にします。 <code>_targets.R</code> の最後のオブジェクトとして置きます。</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list</span>(</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># --- データの取得(ファイルのターゲット) ---</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># --- データの取得（ファイルのターゲット） ---</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tar_target</span>(occs_file, <span class="fu">download_occs</span>(<span class="st">"data/bvariegatus.rds"</span>), <span class="at">format =</span> <span class="st">"file"</span>),</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tar_target</span>(occs_raw, <span class="fu">readRDS</span>(occs_file)),</span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tar_target</span>(climate_dir, <span class="fu">download_climate</span>(<span class="st">"data"</span>), <span class="at">format =</span> <span class="st">"file"</span>),</span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># --- 環境データ(ラスターは tar_terra_rast()) ---</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># --- 環境データ（ラスターは tar_terra_rast()） ---</span></span>
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tar_terra_rast</span>(envs_all, <span class="fu">load_envs</span>(climate_dir)),</span>
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tar_terra_rast</span>(envs, <span class="fu">drop_correlated</span>(envs_all)),</span>
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
@@ -497,7 +497,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tar_target</span>(best_model, <span class="fu">eval.models</span>(e_mx)[[best<span class="sc">$</span>tune.args]]),</span>
 <span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tar_terra_rast</span>(best_pred, <span class="fu">eval.predictions</span>(e_mx)[[<span class="fu">as.character</span>(best<span class="sc">$</span>tune.args)]]),</span>
 <span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>  <span class="co"># --- ヌルモデル(時間がかかる) ---</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>  <span class="co"># --- ヌルモデル（時間がかかる） ---</span></span>
 <span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tar_target</span>(e_null, <span class="fu">run_nulls</span>(e_mx, best, <span class="at">no_iter =</span> <span class="dv">10</span>))</span>
 <span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -512,10 +512,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><code>tar_target(envs, drop_correlated(envs_all))</code> は、「<code>envs_all</code> に <code>drop_correlated()</code> を適用した結果を <code>envs</code> と呼ぶ」という意味です。 <strong>ターゲット同士の依存関係は、コードの中で使われている名前から、<code>targets</code> が自動で読み取ります</strong> (<code>drop_correlated(envs_all)</code> の中に <code>envs_all</code> があるので、<code>envs_all</code> を先に作る)。 書く順番は、実行の順番とは関係ありません。</li>
-<li><code>format = "file"</code> は、「結果は R のオブジェクトでなく <strong>ファイル</strong>」という指定です。 <code>targets</code> はファイルの中身を調べ、<strong>データが変わったとき(たとえば GBIF の記録を取り直したとき)だけ</strong>、 それに依存するターゲットをやり直します。</li>
-<li><code>tar_terra_rast(名前, 作り方)</code> は、<code>tar_target()</code> のラスター版です(書き方は同じ)。</li>
-<li>設定値(<code>fc</code>、<code>rm</code>、<code>n</code>、<code>no_iter</code>)を <code>_targets.R</code> に書いておくと、設定を見直すときに、このファイルだけを見れば済みます。</li>
+<li><code>tar_target(envs, drop_correlated(envs_all))</code> は、「<code>envs_all</code> に <code>drop_correlated()</code> を適用した結果を <code>envs</code> と呼ぶ」という意味です。 <strong>ターゲット同士の依存関係は、コードの中で使われている名前から、<code>targets</code> が自動で読み取ります</strong> （<code>drop_correlated(envs_all)</code> の中に <code>envs_all</code> があるので、<code>envs_all</code> を先に作る）。 書く順番は、実行の順番とは関係ありません。</li>
+<li><code>format = "file"</code> は、「結果は R のオブジェクトでなく <strong>ファイル</strong>」という指定です。 <code>targets</code> はファイルの中身を調べ、<strong>データが変わったとき（たとえば GBIF の記録を取り直したとき）だけ</strong>、 それに依存するターゲットをやり直します。</li>
+<li><code>tar_terra_rast(名前, 作り方)</code> は、<code>tar_target()</code> のラスター版です（書き方は同じ）。</li>
+<li>設定値（<code>fc</code>、<code>rm</code>、<code>n</code>、<code>no_iter</code>）を <code>_targets.R</code> に書いておくと、設定を見直すときに、このファイルだけを見れば済みます。</li>
 </ul>
 </div>
 </div>
@@ -527,9 +527,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tar_manifest</span>(<span class="at">fields =</span> <span class="fu">c</span>(<span class="st">"name"</span>, <span class="st">"command"</span>))</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>There were 16 warnings (use warnings() to see them)</code></pre>
-</div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 15 × 2
    name        command                                                          
@@ -551,11 +548,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 15 best_model  "eval.models(e_mx)[[best$tune.args]]"                            </code></pre>
 </div>
 </div>
-<p>依存関係は、図にして確認できます。 RStudio では <code>tar_visnetwork()</code> で、動かせる図が表示されます。 ここでは、静的な図(<code>tar_mermaid()</code>)を示します。四角のターゲットが、矢印の向きに、順に作られます。</p>
+<p>依存関係は、図にして確認できます。 RStudio では <code>tar_visnetwork()</code> で、動かせる図が表示されます。 ここでは、静的な図（<code>tar_mermaid()</code>）を示します。四角のターゲットが、矢印の向きに、順に作られます。</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tar_visnetwork</span>(<span class="at">targets_only =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tar_visnetwork</span>(<span class="at">targets_only =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>There were 16 warnings (use warnings() to see them)</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -601,34 +597,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="make" class="level1" data-number="6">
 <h1 data-number="6"><span class="header-section-number">6</span> 実行する</h1>
-<p>実行は、<code>tar_make()</code> 1 つです。 <strong>作業フォルダが、プロジェクトのフォルダである</strong>ことを確認してから実行してください(<code>getwd()</code>)。</p>
-<p>初回は、すべてのターゲットが作られます(<code>dispatched</code> が開始、<code>completed</code> が完了)。 スクリプト版と同じく、モデルの作成にいちばん時間がかかります(数分)。</p>
+<p>実行は、<code>tar_make()</code> 1 つです。 <strong>作業フォルダが、プロジェクトのフォルダである</strong>ことを確認してから実行してください（<code>getwd()</code>）。</p>
+<p>初回は、すべてのターゲットが作られます（<code>dispatched</code> が開始、<code>completed</code> が完了）。 スクリプト版と同じく、モデルの作成にいちばん時間がかかります（数分）。</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(targets)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tar_make</span>()</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(targets)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tar_make</span>()</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>+ climate_dir dispatched
-✔ climate_dir completed [779ms, 191.96 MB]
+✔ climate_dir completed [557ms, 191.96 MB]
 + occs_file dispatched
 ✔ occs_file completed [0ms, 4.28 kB]
 + envs_all dispatched
-✔ envs_all completed [762ms, 23.74 MB]
+✔ envs_all completed [582ms, 23.74 MB]
 + occs_raw dispatched
-✔ occs_raw completed [1ms, 4.28 kB]
+✔ occs_raw completed [0ms, 4.28 kB]
 + envs dispatched
-✔ envs completed [7.6s, 12.50 MB]
+✔ envs completed [7s, 12.50 MB]
 + occs dispatched
-✔ occs completed [85ms, 1.68 kB]
+✔ occs completed [94ms, 1.68 kB]
 + bg_buffer dispatched
-✔ bg_buffer completed [316ms, 11.78 kB]
+✔ bg_buffer completed [353ms, 11.96 kB]
 + envs_bg dispatched
-✔ envs_bg completed [43ms, 2.76 MB]
+✔ envs_bg completed [44ms, 2.76 MB]
 + bg dispatched
-✔ bg completed [1s, 40.55 kB]
+✔ bg completed [981ms, 40.55 kB]
 + e_mx dispatched
-✔ e_mx completed [1m 31.7s, 36.86 MB]
+✔ e_mx completed [1m 35.4s, 36.86 MB]
 + res dispatched
 ✔ res completed [0ms, 2.05 kB]
 + best dispatched
@@ -636,11 +632,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 + best_pred dispatched
 ✔ best_pred completed [3ms, 1.79 MB]
 + e_null dispatched
-✔ e_null completed [29s, 374.58 kB]
+✔ e_null completed [27.4s, 374.58 kB]
 + best_model dispatched
-✔ best_model completed [0ms, 9.85 kB]
-✔ ended pipeline [2m 14.7s, 15 completed, 0 skipped]
-There were 21 warnings (use warnings() to see them)</code></pre>
+✔ best_model completed [1ms, 9.85 kB]
+✔ ended pipeline [2m 15.5s, 15 completed, 0 skipped]</code></pre>
 </div>
 </div>
 <p>結果は、プロジェクトの中の <code>_targets/</code> フォルダに保存されました。 そのままでは使えないので、次の節の方法で、R に読み込みます。</p>
@@ -648,31 +643,30 @@ There were 21 warnings (use warnings() to see them)</code></pre>
 <h2 data-number="6.1" class="anchored" data-anchor-id="make2"><span class="header-section-number">6.1</span> もう一度実行する</h2>
 <p>何も変えずに、もう一度 <code>tar_make()</code> を実行してみましょう。</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tar_make</span>()</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tar_make</span>()</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>✔ skipped pipeline [49ms, 15 skipped]
-There were 16 warnings (use warnings() to see them)</code></pre>
+<pre><code>✔ skipped pipeline [37ms, 15 skipped]</code></pre>
 </div>
 </div>
-<p>すべて <code>skipped</code>(省略)になり、一瞬で終わります。 <code>targets</code> は、コードとデータが前回から変わっていないターゲットは、<strong>やり直さずに保存済みの結果を使う</strong> からです。 これが、<code>targets</code> の一番の利点です。</p>
+<p>すべて <code>skipped</code>（省略）になり、一瞬で終わります。 <code>targets</code> は、コードとデータが前回から変わっていないターゲットは、<strong>やり直さずに保存済みの結果を使う</strong> からです。 これが、<code>targets</code> の一番の利点です。</p>
 </section>
 </section>
 <section id="read" class="level1" data-number="7">
 <h1 data-number="7"><span class="header-section-number">7</span> 結果を読み込む</h1>
 <p>保存された結果は、2 つの関数で R に読み込みます。</p>
 <ul>
-<li><code>tar_read(名前)</code>:結果を取り出す(オブジェクトとして使う)。</li>
+<li><code>tar_read(名前)</code>:結果を取り出す（オブジェクトとして使う）。</li>
 <li><code>tar_load(名前)</code>:結果を、同じ名前のオブジェクトとして読み込む。</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(targets)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ENMeval)</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(terra)</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 評価結果の表(スクリプト版の eval.results(e.mx) と同じ)</span></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tar_read</span>(res) <span class="sc">|&gt;</span> <span class="fu">head</span>()</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(targets)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ENMeval)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(terra)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 評価結果の表（スクリプト版の eval.results(e.mx) と同じ）</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tar_read</span>(res) <span class="sc">|&gt;</span> <span class="fu">head</span>()</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   fc rm   tune.args auc.train cbi.train auc.diff.avg auc.diff.sd auc.val.avg
 1   L  1   fc.L_rm.1 0.8372209     0.955    0.1406825  0.04979463   0.7719976
@@ -696,8 +690,8 @@ There were 16 warnings (use warnings() to see them)</code></pre>
 5 2127.358  72.690748 1.054507e-16    12
 6 2055.836   1.169526 3.578373e-01    25</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 選ばれた最適モデルの設定</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tar_read</span>(best)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 選ばれた最適モデルの設定</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tar_read</span>(best)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  fc rm tune.args auc.train cbi.train auc.diff.avg auc.diff.sd auc.val.avg
 1  L  1 fc.L_rm.1 0.8372209     0.955    0.1406825  0.04979463   0.7719976
@@ -709,8 +703,8 @@ There were 16 warnings (use warnings() to see them)</code></pre>
 </div>
 <p>選ばれたモデルの係数、応答曲線、予測地図は、スクリプト版と同じ関数で描けます。</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 最適モデルの 0 でない係数</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tar_read</span>(best_model)<span class="sc">$</span>betas</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 最適モデルの 0 でない係数</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tar_read</span>(best_model)<span class="sc">$</span>betas</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>        bio2         bio3         bio5         bio8        bio13        bio14 
 -0.469251400  0.002546407 -0.421916406  0.469346353  0.004406557 -0.024110021 
@@ -719,10 +713,10 @@ There were 16 warnings (use warnings() to see them)</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 応答曲線:出現記録の位置の環境変数の値を渡す</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>e_mx <span class="ot">&lt;-</span> <span class="fu">tar_read</span>(e_mx)</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>resp.data <span class="ot">&lt;-</span> <span class="fu">eval.occs</span>(e_mx)[, <span class="fu">names</span>(<span class="fu">tar_read</span>(envs))]</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="fu">evalplot.respCurves</span>(<span class="fu">tar_read</span>(best_model), resp.data)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 応答曲線:出現記録の位置の環境変数の値を渡す</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>e_mx <span class="ot">&lt;-</span> <span class="fu">tar_read</span>(e_mx)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>resp.data <span class="ot">&lt;-</span> <span class="fu">eval.occs</span>(e_mx)[, <span class="fu">names</span>(<span class="fu">tar_read</span>(envs))]</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="fu">evalplot.respCurves</span>(<span class="fu">tar_read</span>(best_model), resp.data)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -732,9 +726,9 @@ There were 16 warnings (use warnings() to see them)</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 予測地図</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">tar_read</span>(best_pred), <span class="at">col =</span> <span class="fu">terrain.colors</span>(<span class="dv">100</span>))</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="fu">eval.occs</span>(e_mx), <span class="at">pch =</span> <span class="dv">21</span>, <span class="at">bg =</span> <span class="fu">eval.occs.grp</span>(e_mx))</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 予測地図</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">tar_read</span>(best_pred), <span class="at">col =</span> <span class="fu">terrain.colors</span>(<span class="dv">100</span>))</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="fu">eval.occs</span>(e_mx), <span class="at">pch =</span> <span class="dv">21</span>, <span class="at">bg =</span> <span class="fu">eval.occs.grp</span>(e_mx))</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -744,8 +738,8 @@ There were 16 warnings (use warnings() to see them)</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># チューニングの結果の図</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">evalplot.stats</span>(<span class="at">e =</span> e_mx, <span class="at">stats =</span> <span class="fu">c</span>(<span class="st">"or.10p"</span>, <span class="st">"cbi.val"</span>), <span class="at">color =</span> <span class="st">"fc"</span>, <span class="at">x.var =</span> <span class="st">"rm"</span>)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># チューニングの結果の図</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">evalplot.stats</span>(<span class="at">e =</span> e_mx, <span class="at">stats =</span> <span class="fu">c</span>(<span class="st">"or.10p"</span>, <span class="st">"cbi.val"</span>), <span class="at">color =</span> <span class="st">"fc"</span>, <span class="at">x.var =</span> <span class="st">"rm"</span>)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -756,8 +750,8 @@ There were 16 warnings (use warnings() to see them)</code></pre>
 </div>
 <p>ヌルモデルとの比較も、同じように読み込めます。</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>e_null <span class="ot">&lt;-</span> <span class="fu">tar_read</span>(e_null)</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">null.emp.results</span>(e_null)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>e_null <span class="ot">&lt;-</span> <span class="fu">tar_read</span>(e_null)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">null.emp.results</span>(e_null)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  statistic    auc.train  cbi.train      auc.val    auc.diff      cbi.val
 1  emp.mean 8.372209e-01 0.95500000 7.719976e-01  0.14068250 8.007500e-01
@@ -774,7 +768,7 @@ There were 16 warnings (use warnings() to see them)</code></pre>
 5 -0.03030051 -1.61007126
 6  0.48791369  0.05369115</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">evalplot.nulls</span>(e_null, <span class="at">stats =</span> <span class="fu">c</span>(<span class="st">"or.10p"</span>, <span class="st">"cbi.val"</span>), <span class="at">plot.type =</span> <span class="st">"histogram"</span>)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">evalplot.nulls</span>(e_null, <span class="at">stats =</span> <span class="fu">c</span>(<span class="st">"or.10p"</span>, <span class="st">"cbi.val"</span>), <span class="at">plot.type =</span> <span class="st">"histogram"</span>)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -793,7 +787,7 @@ There were 16 warnings (use warnings() to see them)</code></pre>
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><code>targets</code> は、<strong>ターゲットごとに</strong> 乱数シード(<code>tar_option_set(seed = 48)</code> から決まる)を設定してから、そのターゲットを作ります。 スクリプト版は、最初に <code>set.seed(48)</code> を 1 回だけ設定していたので、背景点の位置が変わります。 そのため、数値や、選ばれるモデルが、スクリプト版と一致するとは限りません(傾向は同じはずです)。 ターゲットごとに乱数の状態が決まっているので、<code>tar_make()</code> を何度実行しても、同じ結果になります。</p>
+<p><code>targets</code> は、<strong>ターゲットごとに</strong> 乱数シード（<code>tar_option_set(seed = 48)</code> から決まる）を設定してから、そのターゲットを作ります。 スクリプト版は、最初に <code>set.seed(48)</code> を 1 回だけ設定していたので、背景点の位置が変わります。 そのため、数値や、選ばれるモデルが、スクリプト版と一致するとは限りません（傾向は同じはずです）。 ターゲットごとに乱数の状態が決まっているので、<code>tar_make()</code> を何度実行しても、同じ結果になります。</p>
 </div>
 </div>
 </section>
@@ -801,17 +795,14 @@ There were 16 warnings (use warnings() to see them)</code></pre>
 <h1 data-number="8"><span class="header-section-number">8</span> 設定を変えて、やり直す</h1>
 <p><code>targets</code> の利点がいちばん分かるのは、<strong>設定を変えたとき</strong> です。 たとえば、正則化の倍率を <code>rm = 1:5</code> から <code>rm = 1:6</code> に増やしてみましょう。 <code>_targets.R</code> の、<code>e_mx</code> のターゲットの <code>rm = 1:5</code> を、<code>rm = 1:6</code> に書き換えます。</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tar_target</span>(e_mx, <span class="fu">run_enmeval</span>(occs, envs, bg, <span class="at">fc =</span> <span class="fu">c</span>(<span class="st">"L"</span>, <span class="st">"LQ"</span>, <span class="st">"LQH"</span>), <span class="at">rm =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>),</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">format =</span> format_enm),</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tar_target</span>(e_mx, <span class="fu">run_enmeval</span>(occs, envs, bg, <span class="at">fc =</span> <span class="fu">c</span>(<span class="st">"L"</span>, <span class="st">"LQ"</span>, <span class="st">"LQH"</span>), <span class="at">rm =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>),</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">format =</span> format_enm),</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>どのターゲットがやり直しになるかは、実行前に <code>tar_outdated()</code> で分かります。</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tar_outdated</span>()</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tar_outdated</span>()</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>There were 16 warnings (use warnings() to see them)</code></pre>
-</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "res"        "best_pred"  "e_mx"       "e_null"     "best"      
 [6] "best_model"</code></pre>
@@ -819,24 +810,23 @@ There were 16 warnings (use warnings() to see them)</code></pre>
 </div>
 <p>設定を変えた <code>e_mx</code> と、それを使うターゲットだけです。 データの取得、環境データの準備、背景点などは、変わっていないので、やり直されません。</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tar_make</span>()</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tar_make</span>()</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>+ e_mx dispatched
-✔ e_mx completed [1m 53.5s, 44.22 MB]
+✔ e_mx completed [1m 47.9s, 44.22 MB]
 + res dispatched
 ✔ res completed [0ms, 2.35 kB]
 + best dispatched
 ✔ best completed [1ms, 578 B]
 + best_pred dispatched
-✔ best_pred completed [2ms, 1.79 MB]
+✔ best_pred completed [3ms, 1.79 MB]
 + e_null dispatched
-✔ e_null completed [27.5s, 374.58 kB]
+✔ e_null completed [29.3s, 374.58 kB]
 + best_model dispatched
 ✔ best_model completed [0ms, 9.85 kB]
-✔ ended pipeline [2m 24.4s, 6 completed, 9 skipped]
-There were 17 warnings (use warnings() to see them)</code></pre>
+✔ ended pipeline [2m 21.2s, 6 completed, 9 skipped]</code></pre>
 </div>
 </div>
 <p><code>skipped</code> になっているデータの準備と、<code>completed</code> になった <code>e_mx</code> 以降を見比べてください。</p>
@@ -850,7 +840,7 @@ There were 17 warnings (use warnings() to see them)</code></pre>
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>複数の種について同じ解析をするときは、パイプラインの「種の名前」だけを変えて動かすことになります。 そのためには、<code>targets</code> の <strong>ブランチ(branching)</strong> や、<code>crew</code> による <strong>並列実行</strong> を使います。 これらは、このページの範囲を越えるので、<a href="#resources">参考資料</a>を見てください。 Kass et al.&nbsp;(2022) の全球アリ解析のように、数百の種を HPC 上で並列に動かす場合にも使えます。</p>
+<p>複数の種について同じ解析をするときは、パイプラインの「種の名前」だけを変えて動かすことになります。 そのためには、<code>targets</code> の <strong>ブランチ（branching）</strong> や、<code>crew</code> による <strong>並列実行</strong> を使います。 これらは、このページの範囲を越えるので、<a href="#resources">参考資料</a>を見てください。 Kass et al.&nbsp;(2022) の全球アリ解析のように、数百の種を HPC 上で並列に動かす場合にも使えます。</p>
 </div>
 </div>
 </section>
@@ -858,19 +848,19 @@ There were 17 warnings (use warnings() to see them)</code></pre>
 <h1 data-number="9"><span class="header-section-number">9</span> 省略した内容</h1>
 <p>スクリプト版のうち、このページに含めなかったのは、結果を得るためには必須でない「調べるためのコード」です。</p>
 <ul>
-<li>環境の類似度(MESS)の確認や、出現記録・背景点の図示。</li>
-<li>分割方法(<code>block</code>、<code>checkerboard</code>、<code>jackknife</code>、<code>randomkfold</code>、ユーザー定義)の比較。 このパイプラインは <code>block</code> に固定しています(<code>run_enmeval()</code> の <code>partitions</code>)。変えたいときは、関数の引数にします。</li>
+<li>環境の類似度（MESS）の確認や、出現記録・背景点の図示。</li>
+<li>分割方法（<code>block</code>、<code>checkerboard</code>、<code>jackknife</code>、<code>randomkfold</code>、ユーザー定義）の比較。 このパイプラインは <code>block</code> に固定しています（<code>run_enmeval()</code> の <code>partitions</code>）。変えたいときは、関数の引数にします。</li>
 <li><code>ENMevaluation</code> のスロットの調べ方、ニッチの重なり、モデルの複雑さの比較。</li>
 </ul>
 </section>
 <section id="resources" class="level1" data-number="10">
 <h1 data-number="10"><span class="header-section-number">10</span> 参考資料</h1>
-<p><code>targets</code> を、このページより詳しく学ぶための資料です(いずれも英語)。</p>
+<p><code>targets</code> を、このページより詳しく学ぶための資料です（いずれも英語）。</p>
 <ul>
 <li><a href="https://books.ropensci.org/targets/"><strong>The {targets} R package user manual</strong></a>:公式のマニュアル。まず読むならこれ。</li>
-<li><a href="https://carpentries-incubator.github.io/targets-workshop/"><strong>Introduction to the “targets” Package for Reproducible Data Analysis in R</strong></a>:Carpentries Incubator の授業。 手を動かしながら学ぶ形式です。(<a href="https://github.com/carpentries-incubator/targets-workshop">GitHub リポジトリ</a>)</li>
-<li><a href="https://docs.ropensci.org/targets/"><strong>targets のウェブサイト</strong></a>:関数の一覧とリファレンス。(<a href="https://github.com/ropensci/targets">GitHub リポジトリ</a>)</li>
-<li><a href="https://docs.ropensci.org/tarchetypes/"><strong>tarchetypes</strong></a>:<code>targets</code> を拡張するパッケージ(ブランチの簡単な書き方や、Quarto 文書の組み込みなど)。</li>
+<li><a href="https://carpentries-incubator.github.io/targets-workshop/"><strong>Introduction to the “targets” Package for Reproducible Data Analysis in R</strong></a>:Carpentries Incubator の授業。 手を動かしながら学ぶ形式です。（<a href="https://github.com/carpentries-incubator/targets-workshop">GitHub リポジトリ</a>）</li>
+<li><a href="https://docs.ropensci.org/targets/"><strong>targets のウェブサイト</strong></a>:関数の一覧とリファレンス。（<a href="https://github.com/ropensci/targets">GitHub リポジトリ</a>）</li>
+<li><a href="https://docs.ropensci.org/tarchetypes/"><strong>tarchetypes</strong></a>:<code>targets</code> を拡張するパッケージ（ブランチの簡単な書き方や、Quarto 文書の組み込みなど）。</li>
 <li><a href="https://github.com/ropensci/geotargets"><strong>geotargets</strong></a>:ラスターやベクターなどの空間データを <code>targets</code> で扱うための拡張。</li>
 <li><a href="https://wlandau.github.io/crew/"><strong>crew</strong></a>:<code>targets</code> の並列実行。</li>
 </ul>
