@@ -37,8 +37,8 @@ options(terra.pal = terra::map.pal("plasma", 100))
 この版は **まっさらなパソコンで、上から順に実行すれば最後まで動く** ように書き直してあります。
 
 - 関数名・オブジェクト名は原則として元の vignette と同じにしてあるので、英語版と見比べられます。
-- 日本のシダ植物の解析では使わない部分(Java 版 Maxent、独自の評価指標、メタデータ出力など)は省略しました。
-- 「羊歯解析では」と書いてある囲みは、あとで日本のシダのデータに適用するときの注意点です。
+- 入門に必要でない部分(Java 版 Maxent、独自の評価指標、メタデータ出力など)は省略しました。
+- 「実際の研究では」と書いてある囲みは、自分のデータに適用するときの注意点や、発表された研究例です。
 - 引用文献: Kass, J. M. et al. (2021) ENMeval 2.0: Redesigned for customizable and reproducible modeling of species' niches and distributions. *Methods in Ecology and Evolution* 12: 1602–1608. <https://doi.org/10.1111/2041-210X.13628>
 :::
 
@@ -279,7 +279,7 @@ envs <- envs[[!(names(envs) %in% envs.rem)]]
 names(envs)
 ```
 
-::: {.callout-tip title="羊歯解析では"}
+::: {.callout-tip title="実際の研究では"}
 Kass et al. (2022)(アリの全球解析)は、投影(将来や別地域への予測)を行わないため、19 変数すべてを使い、正則化に任せました。
 一方、この VIF による変数選択は、気候変動下での予測など別の環境への投影を行う場合には、より安全な選択です。
 解析の目的に合わせて決めてください。
@@ -301,7 +301,7 @@ occs <- occs[!occs.cellDups, ]
 nrow(occs)
 ```
 
-::: {.callout-tip title="羊歯解析では"}
+::: {.callout-tip title="実際の研究では"}
 `maxnet`(このチュートリアルで使う R だけで動く Maxent の実装)は、Java 版 Maxent と違い、
 **同じセルの重複記録を自動では除きません**。
 このコードのように、自分でセル重複の除去(または間引き)をしてください。
@@ -445,9 +445,9 @@ plot(envs.bg[[1]])
 points(bg, pch = 20, cex = 0.2)
 ```
 
-::: {.callout-tip title="羊歯解析では"}
-ここでは背景点を一様ランダムに取りましたが、シダでは、採集の偏り(都市の近くや登山道沿いに記録が集中する)があります。
-その場合は、**シダ全種の記録の密度**(ターゲットグループ)に比例して背景点を取る方法が有効です(Phillips et al. 2009)。
+::: {.callout-tip title="実際の研究では"}
+ここでは背景点を一様ランダムに取りましたが、実際の出現記録には、採集の偏り(都市の近くや登山道沿いに記録が集中するなど)があることがよくあります。
+その場合は、**同じ分類群(グループ)全体の記録の密度**(ターゲットグループ)に比例して背景点を取る方法が有効です(Phillips et al. 2009)。
 アリの研究(Kass et al. 2022)も、全アリ記録の密度で重みづけして背景点を取っています。
 :::
 
@@ -458,7 +458,7 @@ points(bg, pch = 20, cex = 0.2)
 分け方は 7 種類あり、`ENMevaluate()` の `partitions` 引数で選びます。
 分割は、`ENMevaluate()` の内部で自動的に行われますが、
 その前に自分で分割してみて、結果を図で確認することもできます。
-このチュートリアルでは、羊歯解析で使いそうな次の 4 種類を取り上げます。
+このチュートリアルでは、実際の研究でよく使われる次の 4 種類を取り上げます。
 
 1. 空間ブロック(block)
 2. 市松模様(checkerboard)
@@ -586,7 +586,7 @@ evalplot.envSim.hist(occs.z = occs.z, bg.z = bg.z, occs.grp = rand$occs.grp,
                      bg.grp = rand$bg.grp, ref.data = "occs")
 ```
 
-::: {.callout-tip title="羊歯解析では:分割方法の選び方"}
+::: {.callout-tip title="実際の研究では:分割方法の選び方"}
 Kass et al. (2022) は、記録が 25 地点未満の種では **ジャックナイフ**、25 地点以上では **ランダム 5 分割** を使いました。
 現在の分布を地図にすることが目的で、別の環境への転用が目的ではなかったからです。
 気候変動下での将来予測など、転用が目的なら、**空間的な分割**(`block` や `checkerboard`)が適しています。
@@ -694,7 +694,7 @@ e.mx
 ただし、データが小さいと、並列計算のほうが遅くなることもあります。
 :::
 
-::: {.callout-tip title="羊歯解析では:設定の範囲"}
+::: {.callout-tip title="実際の研究では:設定の範囲"}
 アリの研究(Kass et al. 2022)は、特徴クラス `L`・`LQ`・`H`・`LQH`、RM = 1〜5 の組み合わせ(計 20 個)をチューニングしました。
 :::
 
@@ -834,7 +834,7 @@ opt.seq <- res |>
 opt.seq
 ```
 
-::: {.callout-tip title="羊歯解析では:アリの研究の選択基準"}
+::: {.callout-tip title="実際の研究では:アリの研究の選択基準"}
 Kass et al. (2022) は、次の順に絞りこみました。
 
 1. 0 でない係数がないモデルを除く。
@@ -1003,7 +1003,7 @@ evalplot.nulls(mod.null, stats = c("or.10p", "cbi.val"), plot.type = "violin")
 - **`maxent.jar`(Java 版 Maxent)**:Java の設定が必要で、うまく動かないことも多いため省略しました。`algorithm = "maxent.jar"` で使えます。
 - **独自の評価指標**(`user.eval`、`kuenm` による pROC)や、独自のアルゴリズム(`ENMdetails`)。
 - **完全に独立したテストデータ**(`partitions = "testing"`)、分割なし(`"none"`)、環境ラスターなしの入力(SWD)。
-- **メタデータの出力**(`rangeModelMetadata`):羊歯解析では、報告の標準的な枠組みである **ODMAP**(Zurell et al. 2020)を使う予定です。
+- **メタデータの出力**(`rangeModelMetadata`):モデルの報告には、標準的な枠組みである **ODMAP**(Zurell et al. 2020)も利用できます。
 
 # 参考文献と情報源 {#resources}
 
