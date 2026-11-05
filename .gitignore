@@ -8,3 +8,5 @@ data
 /.quarto/
 **/*.quarto_ipynb
 .DS_Store
+_targets/
+_site/

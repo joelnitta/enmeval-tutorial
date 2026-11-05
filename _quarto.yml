@@ -1,8 +1,24 @@
 project:
-  type: default
+  type: website
   # 描画するファイルを明示する。ここに書かないファイル(data/ や ants/ の中身など)は無視される。
   render:
+    - index.qmd
     - enmeval-tutorial-ja.qmd
+    - enmeval-targets-ja.qmd
+
+website:
+  title: "ENMeval 2.0 チュートリアル"
+  navbar:
+    left:
+      - href: index.qmd
+        text: "はじめに"
+      - href: enmeval-tutorial-ja.qmd
+        text: "スクリプト版"
+      - href: enmeval-targets-ja.qmd
+        text: "targets 版"
+    right:
+      - icon: github
+        href: https://github.com/joelnitta/enmeval-tutorial
 
 execute:
   # 計算結果を _freeze/ に保存し、プロジェクト全体の render / publish ではコードを再実行しない。
@@ -10,4 +26,5 @@ execute:
   # _freeze/ は git にコミットする。
   # .qmd を編集したら、ローカルで次を実行して _freeze/ を更新してからコミットすること:
   #   quarto render enmeval-tutorial-ja.qmd
+  #   quarto render enmeval-targets-ja.qmd
   freeze: true
