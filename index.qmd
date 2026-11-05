@@ -1,5 +1,5 @@
 ---
-title: "ENMeval 2.0 チュートリアル(日本語版)"
+title: "ENMeval 2.0 チュートリアル（日本語版）"
 subtitle: "maxnet によるニッチモデリングの流れを、ナマケモノのデータで一通り体験する"
 lang: ja
 toc: false
@@ -7,21 +7,21 @@ toc: false
 
 R パッケージ [ENMeval](https://jamiemkass.github.io/ENMeval/) 2.0.6 の vignette を日本語に翻訳し、
 R に慣れていない人でもつまずかないように補足を加えたチュートリアルです。
-ブラウンスロース(*Bradypus variegatus*、ノドジロミユビナマケモノ)の出現記録を使って、
-Maxent(`maxnet`)による **生態的ニッチモデル** の、チューニング・評価・モデル選択を、順に体験します。
+ブラウンスロース（*Bradypus variegatus*、ノドジロミユビナマケモノ）の出現記録を使って、
+Maxent（`maxnet`）による **生態的ニッチモデル** の、チューニング・評価・モデル選択を、順に体験します。
 
 どちらのページも、**まっさらなパソコンで、上から順に実行すれば最後まで動く** ように書き直してあります。
 
 ## 2 つのページ
 
-::: {.callout-note title="1. スクリプト版(はじめにここから)" appearance="default" icon="false"}
+::: {.callout-note title="1. スクリプト版（はじめにここから）" appearance="default" icon="false"}
 [**スクリプト版チュートリアル**](enmeval-tutorial-ja.qmd)
 
 コードを 1 つずつ実行しながら、データの取得、前処理、データの分割、モデルの作成・選択、ヌルモデルまでを順に確かめます。
-各ステップの意味と、つまずきやすい点の解説つきです。R の初心者向け(作業フォルダや RStudio プロジェクトの説明も含みます)。
+各ステップの意味と、つまずきやすい点の解説つきです。R の初心者向け（作業フォルダや RStudio プロジェクトの説明も含みます）。
 :::
 
-::: {.callout-note title="2. targets 版(スクリプト版のあとで)" appearance="default" icon="false"}
+::: {.callout-note title="2. targets 版（スクリプト版のあとで）" appearance="default" icon="false"}
 [**targets 版チュートリアル**](enmeval-targets-ja.qmd)
 
 スクリプト版で確かめた解析のうち、結果を得るのに必要な部分だけを、
