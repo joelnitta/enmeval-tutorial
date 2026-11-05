@@ -2298,8 +2298,8 @@ line-height: 1.8;
 <p>これは、Kass らによる <strong>ENMeval 2.0.6 vignette</strong> (<a href="https://jamiemkass.github.io/ENMeval/articles/ENMeval-2.0-vignette.html" class="uri">https://jamiemkass.github.io/ENMeval/articles/ENMeval-2.0-vignette.html</a>) を日本語に翻訳し、R に慣れていない人でもつまずかないように補足を加えたものです。 元の vignette は R の使い方について暗黙の前提が多く(たとえば「<code>bvariegatus.rds</code> というファイルがすでにある」など)、 そのまま実行すると初心者はエラーで止まってしまいます。 この版は <strong>まっさらなパソコンで、上から順に実行すれば最後まで動く</strong> ように書き直してあります。</p>
 <ul>
 <li>関数名・オブジェクト名は原則として元の vignette と同じにしてあるので、英語版と見比べられます。</li>
-<li>日本のシダ植物の解析では使わない部分(Java 版 Maxent、独自の評価指標、メタデータ出力など)は省略しました。</li>
-<li>「羊歯解析では」と書いてある囲みは、あとで日本のシダのデータに適用するときの注意点です。</li>
+<li>入門に必要でない部分(Java 版 Maxent、独自の評価指標、メタデータ出力など)は省略しました。</li>
+<li>「実際の研究では」と書いてある囲みは、自分のデータに適用するときの注意点や、発表された研究例です。</li>
 <li>引用文献: Kass, J. M. et al. (2021) ENMeval 2.0: Redesigned for customizable and reproducible modeling of species’ niches and distributions. <em>Methods in Ecology and Evolution</em> 12: 1602–1608. <a href="https://doi.org/10.1111/2041-210X.13628" class="uri">https://doi.org/10.1111/2041-210X.13628</a></li>
 </ul>
 </div>
@@ -2556,13 +2556,13 @@ line-height: 1.8;
 [10] &quot;bio19&quot;</code></pre>
 </div>
 </div>
-<div class="callout callout-style-simple callout-tip callout-titled" title="羊歯解析では">
+<div class="callout callout-style-simple callout-tip callout-titled" title="実際の研究では">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">ヒント</span>羊歯解析では
+<span class="screen-reader-only">ヒント</span>実際の研究では
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -2584,13 +2584,13 @@ line-height: 1.8;
 <pre><code>[1] 108</code></pre>
 </div>
 </div>
-<div class="callout callout-style-simple callout-tip callout-titled" title="羊歯解析では">
+<div class="callout callout-style-simple callout-tip callout-titled" title="実際の研究では">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">ヒント</span>羊歯解析では
+<span class="screen-reader-only">ヒント</span>実際の研究では
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -2769,24 +2769,24 @@ line-height: 1.8;
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-tip callout-titled" title="羊歯解析では">
+<div class="callout callout-style-simple callout-tip callout-titled" title="実際の研究では">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">ヒント</span>羊歯解析では
+<span class="screen-reader-only">ヒント</span>実際の研究では
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>ここでは背景点を一様ランダムに取りましたが、シダでは、採集の偏り(都市の近くや登山道沿いに記録が集中する)があります。 その場合は、<strong>シダ全種の記録の密度</strong>(ターゲットグループ)に比例して背景点を取る方法が有効です(Phillips et al. 2009)。 アリの研究(Kass et al. 2022)も、全アリ記録の密度で重みづけして背景点を取っています。</p>
+<p>ここでは背景点を一様ランダムに取りましたが、実際の出現記録には、採集の偏り(都市の近くや登山道沿いに記録が集中するなど)があることがよくあります。 その場合は、<strong>同じ分類群(グループ)全体の記録の密度</strong>(ターゲットグループ)に比例して背景点を取る方法が有効です(Phillips et al. 2009)。 アリの研究(Kass et al. 2022)も、全アリ記録の密度で重みづけして背景点を取っています。</p>
 </div>
 </div>
 </section>
 </section>
 <section id="partition" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> 評価用のデータ分割(パーティション)</h1>
-<p><code>ENMevaluate()</code> は、まず出現記録を <strong>訓練用と検証用のグループ(fold)</strong> に分け、 交差検証(<em>k</em>-fold cross-validation)を行います。 分け方は 7 種類あり、<code>ENMevaluate()</code> の <code>partitions</code> 引数で選びます。 分割は、<code>ENMevaluate()</code> の内部で自動的に行われますが、 その前に自分で分割してみて、結果を図で確認することもできます。 このチュートリアルでは、羊歯解析で使いそうな次の 4 種類を取り上げます。</p>
+<p><code>ENMevaluate()</code> は、まず出現記録を <strong>訓練用と検証用のグループ(fold)</strong> に分け、 交差検証(<em>k</em>-fold cross-validation)を行います。 分け方は 7 種類あり、<code>ENMevaluate()</code> の <code>partitions</code> 引数で選びます。 分割は、<code>ENMevaluate()</code> の内部で自動的に行われますが、 その前に自分で分割してみて、結果を図で確認することもできます。 このチュートリアルでは、実際の研究でよく使われる次の 4 種類を取り上げます。</p>
 <ol type="1">
 <li>空間ブロック(block)</li>
 <li>市松模様(checkerboard)</li>
@@ -2954,13 +2954,13 @@ line-height: 1.8;
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-tip callout-titled" title="羊歯解析では:分割方法の選び方">
+<div class="callout callout-style-simple callout-tip callout-titled" title="実際の研究では:分割方法の選び方">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">ヒント</span>羊歯解析では:分割方法の選び方
+<span class="screen-reader-only">ヒント</span>実際の研究では:分割方法の選び方
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -3099,13 +3099,13 @@ Refer to ?ENMevaluation for information on slots.</code></pre>
 <p>作るモデルの数が多い、データが大きい、パソコンの性能が低い、という場合は、実行に時間がかかります。 <code>parallel = TRUE</code>(と <code>numCores = 使うコア数</code>)を指定すると、並列計算で速くなることがあります。 ただし、データが小さいと、並列計算のほうが遅くなることもあります。</p>
 </div>
 </div>
-<div class="callout callout-style-simple callout-tip callout-titled" title="羊歯解析では:設定の範囲">
+<div class="callout callout-style-simple callout-tip callout-titled" title="実際の研究では:設定の範囲">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">ヒント</span>羊歯解析では:設定の範囲
+<span class="screen-reader-only">ヒント</span>実際の研究では:設定の範囲
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -3593,13 +3593,13 @@ max values  :         1,          1,           1,         1,          1,        
 1 2151.771   125.4294 5.797957e-28     9</code></pre>
 </div>
 </div>
-<div class="callout callout-style-simple callout-tip callout-titled" title="羊歯解析では:アリの研究の選択基準">
+<div class="callout callout-style-simple callout-tip callout-titled" title="実際の研究では:アリの研究の選択基準">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">ヒント</span>羊歯解析では:アリの研究の選択基準
+<span class="screen-reader-only">ヒント</span>実際の研究では:アリの研究の選択基準
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -3947,7 +3947,7 @@ hinge(bio15):6.85179758071899:50.0982208933149
 <li><strong><code>maxent.jar</code>(Java 版 Maxent)</strong>:Java の設定が必要で、うまく動かないことも多いため省略しました。<code>algorithm = &quot;maxent.jar&quot;</code> で使えます。</li>
 <li><strong>独自の評価指標</strong>(<code>user.eval</code>、<code>kuenm</code> による pROC)や、独自のアルゴリズム(<code>ENMdetails</code>)。</li>
 <li><strong>完全に独立したテストデータ</strong>(<code>partitions = &quot;testing&quot;</code>)、分割なし(<code>&quot;none&quot;</code>)、環境ラスターなしの入力(SWD)。</li>
-<li><strong>メタデータの出力</strong>(<code>rangeModelMetadata</code>):羊歯解析では、報告の標準的な枠組みである <strong>ODMAP</strong>(Zurell et al. 2020)を使う予定です。</li>
+<li><strong>メタデータの出力</strong>(<code>rangeModelMetadata</code>):モデルの報告には、標準的な枠組みである <strong>ODMAP</strong>(Zurell et al. 2020)も利用できます。</li>
 </ul>
 </section>
 <section id="resources" class="level1" data-number="10">
