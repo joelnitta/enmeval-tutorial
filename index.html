@@ -2221,12 +2221,17 @@ line-height: 1.8;
   <li><a href="#intro" id="toc-intro" class="nav-link active" data-scroll-target="#intro"><span class="header-section-number">1</span> はじめに</a></li>
   <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup"><span class="header-section-number">2</span> 準備</a>
   <ul class="collapse">
-  <li><a href="#wd" id="toc-wd" class="nav-link" data-scroll-target="#wd"><span class="header-section-number">2.1</span> R と作業フォルダ(working directory)</a>
+  <li><a href="#how-to-run" id="toc-how-to-run" class="nav-link" data-scroll-target="#how-to-run"><span class="header-section-number">2.1</span> このチュートリアルのコードを実行する 2 つの方法</a>
   <ul class="collapse">
-  <li><a href="#rstudio-project" id="toc-rstudio-project" class="nav-link" data-scroll-target="#rstudio-project"><span class="header-section-number">2.1.1</span> RStudio を使う場合:プロジェクトを作ろう</a></li>
+  <li><a href="#method-script" id="toc-method-script" class="nav-link" data-scroll-target="#method-script"><span class="header-section-number">2.1.1</span> 方法 1:新しい R スクリプトにコードをコピーして実行する(おすすめ)</a></li>
+  <li><a href="#method-qmd" id="toc-method-qmd" class="nav-link" data-scroll-target="#method-qmd"><span class="header-section-number">2.1.2</span> 方法 2:チュートリアルの Quarto ファイル(<code>.qmd</code>)をダウンロードして使う</a></li>
   </ul></li>
-  <li><a href="#install" id="toc-install" class="nav-link" data-scroll-target="#install"><span class="header-section-number">2.2</span> パッケージのインストール</a></li>
-  <li><a href="#seed" id="toc-seed" class="nav-link" data-scroll-target="#seed"><span class="header-section-number">2.3</span> 乱数シードを設定する</a></li>
+  <li><a href="#wd" id="toc-wd" class="nav-link" data-scroll-target="#wd"><span class="header-section-number">2.2</span> R と作業フォルダ(working directory)</a>
+  <ul class="collapse">
+  <li><a href="#rstudio-project" id="toc-rstudio-project" class="nav-link" data-scroll-target="#rstudio-project"><span class="header-section-number">2.2.1</span> RStudio を使う場合:プロジェクトを作ろう</a></li>
+  </ul></li>
+  <li><a href="#install" id="toc-install" class="nav-link" data-scroll-target="#install"><span class="header-section-number">2.3</span> パッケージのインストール</a></li>
+  <li><a href="#seed" id="toc-seed" class="nav-link" data-scroll-target="#seed"><span class="header-section-number">2.4</span> 乱数シードを設定する</a></li>
   </ul></li>
   <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span class="header-section-number">3</span> データの取得と前処理</a>
   <ul class="collapse">
@@ -2326,9 +2331,54 @@ line-height: 1.8;
 </section>
 <section id="setup" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> 準備</h1>
-<section id="wd" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="wd"><span class="header-section-number">2.1</span> R と作業フォルダ(working directory)</h2>
+<section id="how-to-run" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="how-to-run"><span class="header-section-number">2.1</span> このチュートリアルのコードを実行する 2 つの方法</h2>
+<p>このページに出てくる灰色のコードブロックを、自分のパソコンの R で実行しながら読み進めます。 実行のしかたは、次の 2 通りです。</p>
+<section id="method-script" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="method-script"><span class="header-section-number">2.1.1</span> 方法 1:新しい R スクリプトにコードをコピーして実行する(おすすめ)</h3>
+<p><strong>R に慣れていない人は、こちらをおすすめします。</strong> 用意するものは、R(できれば RStudio)だけです。</p>
+<ol type="1">
+<li>空の R スクリプト(<code>.R</code> ファイル)を新しく作ります。RStudio なら、メニューの <strong>File → New File → R Script</strong> です。 適当な名前(たとえば <code>enmeval-tutorial.R</code>)で保存しておきます。</li>
+<li>このページのコードブロックを、<strong>上から順に、1 つずつ</strong> スクリプトにコピーします。 コードブロックの右上にマウスを置くと出てくる <strong>コピーボタン</strong> が便利です。</li>
+<li>コピーしたら、そのコードを選択して実行します。RStudio では、実行したい行にカーソルを置いて(または複数行を選択して) <strong>Ctrl + Enter</strong>(Mac は <strong>Cmd + Enter</strong>)です。 出力がページの結果(<code>#&gt;</code> で始まる行)と同じになるか、図が同じように表示されるか(RStudio の <strong>Plots</strong> パネル)を確かめながら進みます。</li>
+</ol>
+<div class="callout callout-style-simple callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">警告</span>方法 1 で気をつけること
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>かならず上から順に実行してください。</strong> あとのコードは、前のコードで作ったオブジェクト(<code>occs</code>、<code>envs</code>、<code>bg</code> など)を使います。 順番を飛ばしたり、R を再起動したりしたあとは、必要な部分を上から実行し直してください。</li>
+<li>灰色のブロックの中で <code>#&gt;</code> で始まる行は、<strong>実行結果の表示</strong>です。コピーしなくてかまいません(<code>#</code> で始まる行は R に無視されるので、コピーしても害はありません)。</li>
+<li><code>{r}</code> ではなく <code>```r</code> と書かれたブロック(たとえば <code>getwd()</code> の例)は、このページでは実行されない <strong>見本</strong> です。実行して試してかまいません。</li>
+<li>コピーしたスクリプトを保存しておけば、次回は最初から通して実行できます。</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="method-qmd" class="level3" data-number="2.1.2">
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="method-qmd"><span class="header-section-number">2.1.2</span> 方法 2:チュートリアルの Quarto ファイル(<code>.qmd</code>)をダウンロードして使う</h3>
+<p>このページは、Quarto 文書 <strong><code>enmeval-tutorial-ja.qmd</code></strong> から作られています。 これをダウンロードして RStudio で開くと、コードをコピーしなくても、ブロックごとに実行できます。</p>
+<ul>
+<li>ダウンロード: <a href="https://raw.githubusercontent.com/joelnitta/enmeval-tutorial/main/enmeval-tutorial-ja.qmd">enmeval-tutorial-ja.qmd</a> (ブラウザに文章が表示されたら、右クリックして「名前を付けてリンク先を保存」するか、表示された内容をテキストファイルとして保存してください。拡張子は <code>.qmd</code> にします。)</li>
+<li>リポジトリ全体は <a href="https://github.com/joelnitta/enmeval-tutorial" class="uri">https://github.com/joelnitta/enmeval-tutorial</a> にあります(緑の <strong>Code</strong> ボタン → <strong>Download ZIP</strong>)。</li>
+</ul>
+<p>ダウンロードした <code>.qmd</code> ファイルは、<strong>作業用の新しいフォルダに入れ</strong>、RStudio で開きます (次の「<a href="#wd">R と作業フォルダ</a>」で説明するように、そのフォルダで RStudio プロジェクトを作ると便利です)。</p>
+<ul>
+<li><strong>ブロックごとに実行する</strong>:各コードブロックの右上の緑の三角ボタン(<strong>Run Current Chunk</strong>)を押します。 上のブロックから順に実行してください(方法 1 と同じ注意があてはまります)。</li>
+<li><strong>文書全体を描画する</strong>:<strong>Render</strong> ボタン(またはターミナルで <code>quarto render enmeval-tutorial-ja.qmd</code>)で、 すべてのコードを実行して、このページと同じ HTML ができます。初回は、データのダウンロードを含めて <strong>約 5 分</strong> かかります。 描画には、<a href="https://quarto.org/">Quarto</a>(RStudio の最近のバージョンには同梱されています)が必要です。</li>
+</ul>
+</section>
+</section>
+<section id="wd" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="wd"><span class="header-section-number">2.2</span> R と作業フォルダ(working directory)</h2>
 <p>R は、<strong>作業フォルダ</strong>(working directory)を基準にして、ファイルを探したり保存したりします。 どこが作業フォルダなのかを知らないままコードを実行すると、「ファイルが見つかりません」というエラーの原因になります。</p>
+<p>このチュートリアルのコードは、作業フォルダの下に <code>data/</code> というフォルダを作り、 ダウンロードしたデータ(出現記録、気候データなど)を <strong>すべてそこに保存します</strong>。 そのため、作業フォルダを、このチュートリアル専用のフォルダにしておくと、ファイルが散らかりません。</p>
 <div class="callout callout-style-simple callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -2341,11 +2391,11 @@ line-height: 1.8;
 <div class="callout-body-container callout-body">
 <p>次のコードで、いまの作業フォルダがわかります。</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>.qmd</code> ファイルを <strong>Render</strong>(レンダリング)するときは、作業フォルダは <strong>その <code>.qmd</code> ファイルがあるフォルダ</strong> になります。 このチュートリアルでは、<code>.qmd</code> ファイルのあるフォルダの下に <code>data/</code> というフォルダを作り、 ダウンロードしたデータはすべてそこに保存します。</p>
+<p><code>.qmd</code> ファイルを Render するとき(方法 2)は、作業フォルダは自動的に <strong>その <code>.qmd</code> ファイルがあるフォルダ</strong> になります。</p>
 </div>
 </div>
-<section id="rstudio-project" class="level3" data-number="2.1.1">
-<h3 data-number="2.1.1" class="anchored" data-anchor-id="rstudio-project"><span class="header-section-number">2.1.1</span> RStudio を使う場合:プロジェクトを作ろう</h3>
+<section id="rstudio-project" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="rstudio-project"><span class="header-section-number">2.2.1</span> RStudio を使う場合:プロジェクトを作ろう</h3>
 <p>RStudio を使うなら、このチュートリアルの作業は <strong>RStudio プロジェクト</strong> の中で行うことを強くおすすめします。</p>
 <p><strong>RStudio プロジェクトとは</strong>:ひとつのフォルダを「ひとつの解析の拠点」として登録する仕組みです。 フォルダの中に <code>.Rproj</code> という小さなファイルができ、そのファイルを開く(またはプロジェクトを開く)と、次のようになります。</p>
 <ul>
@@ -2366,9 +2416,9 @@ line-height: 1.8;
 <div class="callout-body-container callout-body">
 <ol type="1">
 <li>RStudio で、メニューの <strong>File → New Project…</strong> を選びます。</li>
-<li><strong>Existing Directory</strong>(すでにあるフォルダ)を選び、この <code>.qmd</code> ファイルを置いたフォルダを指定します。 (新しくフォルダを作る場合は <strong>New Directory → New Project</strong>。)</li>
-<li><strong>Create Project</strong> を押します。RStudio が再起動し、右上に、プロジェクトの名前が表示されます。</li>
-<li>左下の <strong>Files</strong> パネルに、<code>.Rproj</code> ファイルと、このチュートリアルの <code>.qmd</code> ファイルが見えれば成功です。</li>
+<li><strong>New Directory → New Project</strong> を選び、<strong>Directory name</strong>(フォルダ名。たとえば <code>enmeval-tutorial</code>)と、 フォルダを作る場所(<strong>Create project as subdirectory of</strong>)を指定して、<strong>Create Project</strong> を押します。 (方法 2 で、<code>.qmd</code> ファイルをすでにフォルダに入れてある場合は、<strong>Existing Directory</strong> を選んで、そのフォルダを指定します。)</li>
+<li>RStudio が再起動し、右上にプロジェクトの名前が表示されます。</li>
+<li>左下の <strong>Files</strong> パネルに <code>.Rproj</code> ファイルが見えれば成功です。 方法 1 の人は、ここで <strong>File → New File → R Script</strong> で空のスクリプトを作り、保存します。</li>
 <li>Console で <code>getwd()</code> を実行して、作業フォルダがプロジェクトのフォルダになっていることを確認します。</li>
 </ol>
 <p>次回からは、<strong><code>.Rproj</code> ファイルをダブルクリック</strong>(または RStudio の File → Open Project…)して開きます。</p>
@@ -2384,13 +2434,13 @@ line-height: 1.8;
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>VS Code など他のエディターや、ターミナルから R を使う場合は、プロジェクトの機能はありません。 その場合は、<code>.qmd</code> ファイルのあるフォルダで R を起動するか、<code>getwd()</code> で確認して、必要なら <code>setwd(&quot;フォルダのパス&quot;)</code> で作業フォルダを移動してください。 <code>quarto render</code> でレンダリングするときは、上に書いたとおり、<code>.qmd</code> ファイルのあるフォルダが自動的に作業フォルダになります。</p>
+<p>VS Code など他のエディターや、ターミナルから R を使う場合は、プロジェクトの機能はありません。 その場合は、このチュートリアル専用のフォルダを作り、そのフォルダで R を起動するか、 <code>getwd()</code> で確認して、必要なら <code>setwd(&quot;フォルダのパス&quot;)</code> で作業フォルダを移動してください。</p>
 </div>
 </div>
 </section>
 </section>
-<section id="install" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="install"><span class="header-section-number">2.2</span> パッケージのインストール</h2>
+<section id="install" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="install"><span class="header-section-number">2.3</span> パッケージのインストール</h2>
 <p>R の関数の多くは <strong>パッケージ</strong> として配布されています。 パッケージは、パソコンごとに <strong>一度だけ</strong> <code>install.packages()</code> でインストールし、 R を起動するたびに <code>library()</code> で読み込みます。</p>
 <p>次のコードは、このチュートリアルに必要なパッケージのうち、まだインストールされていないものだけをインストールします。 すべてインストール済みなら、何も起こりません。</p>
 <div class="cell">
@@ -2420,8 +2470,8 @@ line-height: 1.8;
 </div>
 </div>
 </section>
-<section id="seed" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="seed"><span class="header-section-number">2.3</span> 乱数シードを設定する</h2>
+<section id="seed" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="seed"><span class="header-section-number">2.4</span> 乱数シードを設定する</h2>
 <p>背景点のランダム抽出など、このあと乱数を使う場面があります。 <strong>乱数シード</strong>(<code>set.seed()</code>)を固定しておくと、同じコードを実行したときに同じ乱数が得られ、結果を再現できます。</p>
 </section>
 </section>
@@ -2443,8 +2493,11 @@ line-height: 1.8;
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 乱数シードを固定して、解析を再現できるようにする</span></span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">48</span>)</span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># ダウンロードしたデータを保存するフォルダ(なければ作る)</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">&quot;data&quot;</span>, <span class="at">showWarnings =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># terra の地図の色を plasma パレットにする(このページの地図と同じ見た目になる)</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">terra.pal =</span> terra<span class="sc">::</span><span class="fu">map.pal</span>(<span class="st">&quot;plasma&quot;</span>, <span class="dv">100</span>))</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co"># ダウンロードしたデータを保存するフォルダ(なければ作る)</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">&quot;data&quot;</span>, <span class="at">showWarnings =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="コピー" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="occ" class="level2" data-number="3.2">
