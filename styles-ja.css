@@ -1,0 +1,6 @@
+/* 日本語表示用: 游ゴシック/ヒラギノ/メイリオなどを優先する */
+body {
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo",
+    "Noto Sans CJK JP", sans-serif;
+  line-height: 1.8;
+}
