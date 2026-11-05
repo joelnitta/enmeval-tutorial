@@ -8,7 +8,6 @@ format:
     toc-title: "目次"
     toc-depth: 3
     number-sections: true
-    embed-resources: true
     code-fold: false
     theme: cosmo
     callout-appearance: simple
@@ -1048,6 +1047,13 @@ evalplot.nulls(mod.null, stats = c("or.10p", "cbi.val"), plot.type = "violin")
 - **独自の評価指標**(`user.eval`、`kuenm` による pROC)や、独自のアルゴリズム(`ENMdetails`)。
 - **完全に独立したテストデータ**(`partitions = "testing"`)、分割なし(`"none"`)、環境ラスターなしの入力(SWD)。
 - **メタデータの出力**(`rangeModelMetadata`):モデルの報告には、標準的な枠組みである **ODMAP**(Zurell et al. 2020)も利用できます。
+
+::: {.callout-note title="次のステップ:targets でパイプラインにする"}
+ここまでは、コードを 1 つずつ実行して、結果を確かめてきました。
+同じ解析を、設定を変えながらくり返したり、複数の種に当てはめたりするときは、
+R パッケージ `targets` で **パイプライン** にしておくと便利です。
+結果を得るのに必要な部分だけを書き直した [targets 版チュートリアル](enmeval-targets-ja.qmd) に進んでください。
+:::
 
 # 参考文献と情報源 {#resources}
 
