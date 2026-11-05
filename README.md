@@ -18,9 +18,12 @@ Maxent (`maxnet`) ecological niche models.
 
 | File | Contents |
 |---|---|
-| `enmeval-tutorial-ja.qmd` | The tutorial |
+| `index.qmd` | Landing page |
+| `enmeval-tutorial-ja.qmd` | Script-style tutorial (run the code step by step) |
+| `enmeval-targets-ja.qmd` | The same analysis rewritten as a [{targets}](https://docs.ropensci.org/targets/) pipeline (uses [geotargets](https://github.com/ropensci/geotargets) for rasters) |
+| `tutorial-helpers.R` | Behind-the-scenes helpers for the targets page (not shown to readers) |
 | `styles-ja.css` | Font settings for Japanese text |
-| `_quarto.yml` | Quarto project settings (explicit render list, `freeze: true`) |
+| `_quarto.yml` | Quarto website settings (navbar, explicit render list, `freeze: true`) |
 | `_freeze/` | Saved results of the R code (**committed to git**) |
 | `.github/workflows/publish.yml` | GitHub Action that updates the published page on every push to `main` |
 | `data/` | Downloaded data (occurrence records, WorldClim, ...). Not tracked by git |
@@ -33,11 +36,16 @@ Maxent (`maxnet`) ecological niche models.
 
    ```sh
    quarto render enmeval-tutorial-ja.qmd
+   quarto render enmeval-targets-ja.qmd   # also needs the targets and geotargets packages
    ```
 
 The first run downloads the GBIF occurrence records and the WorldClim climate data (several hundred MB) into `data/`,
 so it needs an internet connection and takes about 5 minutes.
 Later runs reuse the saved files.
+
+The targets page shows the code a reader would type (`eval: false` chunks) and really runs it in a throw-away temporary project
+(`data/` is symlinked to the repo's `data/` so nothing is re-downloaded). The shown chunks are written out to `R/functions.R`
+and `_targets.R` by hidden chunks, so the displayed code is exactly the code that ran.
 
 ## Editing and publishing (for maintainers)
 
@@ -47,16 +55,17 @@ so **the R code is never run there**.
 Instead, the results from a local run are saved in `_freeze/` and committed,
 and Actions builds the HTML from those saved results (`freeze: true` in `_quarto.yml`).
 
-After editing `enmeval-tutorial-ja.qmd`, follow these steps:
+After editing `enmeval-tutorial-ja.qmd`, `enmeval-targets-ja.qmd` or `index.qmd`, follow these steps:
 
-1. Edit `enmeval-tutorial-ja.qmd`.
-2. **Render the file locally, by name, to refresh `_freeze/`:**
+1. Edit the file.
+2. **Render each edited file locally, by name, to refresh `_freeze/`:**
 
    ```sh
-   quarto render enmeval-tutorial-ja.qmd
+   quarto render enmeval-tutorial-ja.qmd   # ~5 minutes
+   quarto render enmeval-targets-ja.qmd    # ~6 minutes
    ```
 
-   This takes about 5 minutes. Running `quarto preview` alone does not refresh `_freeze/`.
+    Running `quarto preview` alone does not refresh `_freeze/`.
 3. Commit the `.qmd` and `_freeze/` **together**, and push to `main`.
 4. The `Quarto Publish` GitHub Action runs and updates the `gh-pages` branch. Progress is visible in the repository's **Actions** tab.
 
