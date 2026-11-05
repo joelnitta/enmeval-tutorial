@@ -18,11 +18,19 @@ jobs:
         uses: quarto-dev/quarto-actions/setup@v2
 
       # Quarto は .qmd に R のチャンクがあると R の存在を確認する。
-      # コード自体は実行しないので、パッケージのインストールは不要。
+      # コード自体は実行しない。
       - name: Set up R
         uses: r-lib/actions/setup-r@v2
         with:
           use-public-rspm: true
+
+      # knitr と rmarkdown だけをインストールする(解析用のパッケージは不要)。
+      - name: Install knitr and rmarkdown
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::knitr
+            any::rmarkdown
 
       # R コードは再実行しない。ローカルで保存した _freeze/ の結果を使う(freeze: auto)。
       - name: Render and publish to gh-pages
