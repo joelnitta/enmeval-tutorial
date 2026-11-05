@@ -17,6 +17,13 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
+      # Quarto は .qmd に R のチャンクがあると R の存在を確認する。
+      # コード自体は実行しないので、パッケージのインストールは不要。
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
       # R コードは再実行しない。ローカルで保存した _freeze/ の結果を使う(freeze: auto)。
       - name: Render and publish to gh-pages
         uses: quarto-dev/quarto-actions/publish@v2
