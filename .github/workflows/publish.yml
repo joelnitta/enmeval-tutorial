@@ -32,10 +32,15 @@ jobs:
             any::knitr
             any::rmarkdown
 
-      # R コードは再実行しない。ローカルで保存した _freeze/ の結果を使う(freeze: auto)。
-      - name: Render and publish to gh-pages
+      # 通常の render は _freeze/ の保存結果を使う(R コードは実行されない)。
+      # quarto publish 自身の render は freeze を無視するので、render と publish を分ける。
+      - name: Render
+        run: quarto render
+
+      - name: Publish to gh-pages
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: gh-pages
+          render: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
